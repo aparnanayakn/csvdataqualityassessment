@@ -1,0 +1,401 @@
+@prefix ns1: <http://www.csv2rdf.org/2020/dq#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:Apr a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Area a ns1:columns ;
+    ns1:hasDatatype xsd:string ;
+    ns1:language "en"^^xsd:token .
+
+ns1:AreaID a ns1:columns ;
+    ns1:hasDatatype xsd:integer ;
+    ns1:mean 9.72 ;
+    ns1:stdDev 5.61 .
+
+ns1:Aug a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Dec a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Feb a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Jan a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Jul a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Jun a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Mar a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:May a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Nov a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Oct a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:R0 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Carlow Kilkenny South Tipperary"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 1 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 1.0 ] ;
+    ns1:Oct [ ns1:hasValue 1.0 ] ;
+    ns1:RegionID [ ns1:hasValue 20 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R1 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Cavan Monaghan"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 2 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 19 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R10 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 1.0 ] ;
+    ns1:Area [ ns1:hasValue "Kerry"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 11 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 1.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 20 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R11 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Louth Meath"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 12 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 19 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R12 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Mayo"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 13 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 21 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R13 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 1.0 ] ;
+    ns1:Area [ ns1:hasValue "The Midwest"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 14 ] ;
+    ns1:Aug [ ns1:hasValue 1.0 ] ;
+    ns1:Dec [ ns1:hasValue 3.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 1.0 ] ;
+    ns1:Jun [ ns1:hasValue 1.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 1.0 ] ;
+    ns1:Nov [ ns1:hasValue 3.0 ] ;
+    ns1:Oct [ ns1:hasValue 2.0 ] ;
+    ns1:RegionID [ ns1:hasValue 21 ] ;
+    ns1:Sep [ ns1:hasValue 1.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R14 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "The Midlands"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 15 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 18 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R15 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Sligo Leitrim West Cavan"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 16 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 21 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R16 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Waterford Wexford"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 17 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 20 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R17 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Area [ ns1:hasValue "Social Work Team for Separated Children Seeking Asylum (SWTSCSA)"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 22 ] ;
+    ns1:Aug [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Dec [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Feb [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Jan [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Jul [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Jun [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Mar [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:May [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Nov [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Oct [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:RegionID [ ns1:hasValue 22 ] ;
+    ns1:Sep [ ns1:hasValue "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R2 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Cork"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 3 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 1.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 1.0 ] ;
+    ns1:Nov [ ns1:hasValue 1.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 20 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R3 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Donegal"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 4 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 0.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 21 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R4 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 3.0 ] ;
+    ns1:Area [ ns1:hasValue "Dublin North"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 5 ] ;
+    ns1:Aug [ ns1:hasValue 5.0 ] ;
+    ns1:Dec [ ns1:hasValue 5.0 ] ;
+    ns1:Feb [ ns1:hasValue 3.0 ] ;
+    ns1:Jan [ ns1:hasValue 3.0 ] ;
+    ns1:Jul [ ns1:hasValue 5.0 ] ;
+    ns1:Jun [ ns1:hasValue 5.0 ] ;
+    ns1:Mar [ ns1:hasValue 3.0 ] ;
+    ns1:May [ ns1:hasValue 4.0 ] ;
+    ns1:Nov [ ns1:hasValue 5.0 ] ;
+    ns1:Oct [ ns1:hasValue 4.0 ] ;
+    ns1:RegionID [ ns1:hasValue 19 ] ;
+    ns1:Sep [ ns1:hasValue 5.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R5 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 2.0 ] ;
+    ns1:Area [ ns1:hasValue "Dublin City North"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 6 ] ;
+    ns1:Aug [ ns1:hasValue 3.0 ] ;
+    ns1:Dec [ ns1:hasValue 2.0 ] ;
+    ns1:Feb [ ns1:hasValue 3.0 ] ;
+    ns1:Jan [ ns1:hasValue 3.0 ] ;
+    ns1:Jul [ ns1:hasValue 3.0 ] ;
+    ns1:Jun [ ns1:hasValue 4.0 ] ;
+    ns1:Mar [ ns1:hasValue 4.0 ] ;
+    ns1:May [ ns1:hasValue 3.0 ] ;
+    ns1:Nov [ ns1:hasValue 3.0 ] ;
+    ns1:Oct [ ns1:hasValue 2.0 ] ;
+    ns1:RegionID [ ns1:hasValue 19 ] ;
+    ns1:Sep [ ns1:hasValue 2.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R6 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 2.0 ] ;
+    ns1:Area [ ns1:hasValue "Dublin South Central"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 7 ] ;
+    ns1:Aug [ ns1:hasValue 2.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 1.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 2.0 ] ;
+    ns1:Jun [ ns1:hasValue 1.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 1.0 ] ;
+    ns1:Nov [ ns1:hasValue 1.0 ] ;
+    ns1:Oct [ ns1:hasValue 2.0 ] ;
+    ns1:RegionID [ ns1:hasValue 18 ] ;
+    ns1:Sep [ ns1:hasValue 2.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R7 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 1.0 ] ;
+    ns1:Area [ ns1:hasValue "Dublin South East Wicklow"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 8 ] ;
+    ns1:Aug [ ns1:hasValue 1.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 0.0 ] ;
+    ns1:Jul [ ns1:hasValue 1.0 ] ;
+    ns1:Jun [ ns1:hasValue 1.0 ] ;
+    ns1:Mar [ ns1:hasValue 1.0 ] ;
+    ns1:May [ ns1:hasValue 1.0 ] ;
+    ns1:Nov [ ns1:hasValue 1.0 ] ;
+    ns1:Oct [ ns1:hasValue 1.0 ] ;
+    ns1:RegionID [ ns1:hasValue 18 ] ;
+    ns1:Sep [ ns1:hasValue 1.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R8 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 5.0 ] ;
+    ns1:Area [ ns1:hasValue "Dublin South West Kildare West Wicklow"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 9 ] ;
+    ns1:Aug [ ns1:hasValue 3.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 4.0 ] ;
+    ns1:Jan [ ns1:hasValue 4.0 ] ;
+    ns1:Jul [ ns1:hasValue 3.0 ] ;
+    ns1:Jun [ ns1:hasValue 3.0 ] ;
+    ns1:Mar [ ns1:hasValue 4.0 ] ;
+    ns1:May [ ns1:hasValue 4.0 ] ;
+    ns1:Nov [ ns1:hasValue 1.0 ] ;
+    ns1:Oct [ ns1:hasValue 1.0 ] ;
+    ns1:RegionID [ ns1:hasValue 18 ] ;
+    ns1:Sep [ ns1:hasValue 3.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:R9 a ns1:rows ;
+    ns1:Apr [ ns1:hasValue 0.0 ] ;
+    ns1:Area [ ns1:hasValue "Galway Roscommon"^^xsd:string ] ;
+    ns1:AreaID [ ns1:hasValue 10 ] ;
+    ns1:Aug [ ns1:hasValue 0.0 ] ;
+    ns1:Dec [ ns1:hasValue 1.0 ] ;
+    ns1:Feb [ ns1:hasValue 0.0 ] ;
+    ns1:Jan [ ns1:hasValue 1.0 ] ;
+    ns1:Jul [ ns1:hasValue 0.0 ] ;
+    ns1:Jun [ ns1:hasValue 0.0 ] ;
+    ns1:Mar [ ns1:hasValue 0.0 ] ;
+    ns1:May [ ns1:hasValue 0.0 ] ;
+    ns1:Nov [ ns1:hasValue 0.0 ] ;
+    ns1:Oct [ ns1:hasValue 0.0 ] ;
+    ns1:RegionID [ ns1:hasValue 21 ] ;
+    ns1:Sep [ ns1:hasValue 0.0 ] ;
+    ns1:Year [ ns1:hasValue 2015 ] .
+
+ns1:RegionID a ns1:columns ;
+    ns1:hasDatatype xsd:integer ;
+    ns1:mean 19.72 ;
+    ns1:stdDev 1.23 .
+
+ns1:Sep a ns1:columns ;
+    ns1:hasDatatype xsd:decimal ;
+    ns1:populationCompleteness 0.9444444444444444 .
+
+ns1:Year a ns1:columns ;
+    ns1:hasDatatype xsd:integer ;
+    ns1:mean 2015.0 ;
+    ns1:stdDev 0.0 .
+
+ns1:dataset <http://purl.org/dc/elements/1.1/> "text/csv" ;
+    ns1:fileModified "Sat Sep 26 23:10:50 2020" ;
+    ns1:fileSize 1052 .
+
