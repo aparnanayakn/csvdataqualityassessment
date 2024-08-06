@@ -26,7 +26,7 @@ public class datatypeInfo {
 		
 		Reasoner reasoner = new GenericRuleReasoner( Rule.rulesFromURL("rules.n3") );
 		
-		InfModel infModel = ModelFactory.createInfModel( reasoner, model );
+		InfModel infModel = ModelFactory.crea	teInfModel( reasoner, model );
 
 		
 		ValidityReport validityReport = infModel.validate();

@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:csvtordf="https://purl.archive.org/domain/csvtordf#"
+   xmlns:csvw="http://www.w3.org/ns/csvw#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=14">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-Name"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-StreetviewLink"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=14-Type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#mean">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#TableGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.591238,-8.061219</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-LocationComment">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">between Ballinasloe  Shannon Bridge</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=6">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-Name"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-StreetviewLink"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=6-WGS84Latitude"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#LocationComment">
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <csvtordf:populationCompleteness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.17</csvtordf:populationCompleteness>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.194973</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.167211</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=9">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=9-StreetviewLink"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</csvw:rownum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Keadue</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.942351,-8.0974</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=8">
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-StreetviewLink"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=8-Type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=1">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-Name"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</csvw:rownum>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=1-WGS84Latitude"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.276472</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-OBJECTID"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=5-WGS84Longitude"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.675877</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.981441</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=15">
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-Name"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=15-OBJECTID"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=7">
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-LocationComment"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=7-OBJECTID"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#Name">
+    <csvtordf:language>en</csvtordf:language>
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cortober</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-LocationComment">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Knockranny Amenity Area</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#lang">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Keadue</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#fileSize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.675877,-7.992062</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.426291,-7.945972</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cootehall</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.281975,-8.149057</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.149057</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.741966,-7.918561</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ballyforan</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=17">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-LocationComment"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-WGS84Latitude"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=17-OBJECTID"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=11">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-LocationComment"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-WGS84Latitude"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=11-OBJECTID"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#stdDev">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.981441,-8.160829</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Portrunny Harbour</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=2">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-Name"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=2-OBJECTID"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</csvw:rownum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#format">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N981a8961c0254daab0f26d113dce64c8">
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <rdf:rest rdf:nodeID="N773a8fccf18e40959b4c665a70b7e2cb"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9543984e9a004bcb8f66d43d52ad782f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N104c7cad7e8648369119435497c0173a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.987609</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.985524</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Athlone</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rockingham</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.160829</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.031077</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#row">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=16">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-OBJECTID"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">16</csvw:rownum>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=16-StreetviewLink"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.942351</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#describes">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.945972</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=10">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-WGS84Longitude"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-Name"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=10-OBJECTID"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.807332,-8.031077</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.068732</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#Type">
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <csvtordf:language>en</csvtordf:language>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.918561</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#rownum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.832267</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.577734,-8.065614</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc1493e9f642a4028b424e233f63bbd2e">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#rowTitle">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.065614</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=3">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-LocationComment"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</csvw:rownum>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=3-StreetviewLink"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.998907</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.832267,-7.919495</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.467507,-7.987609</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.985524,-8.233919</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.675877,-7.992062</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=4">
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-WGS84Longitude"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=4-StreetviewLink"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#fileModified">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=12">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-LocationComment"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</csvw:rownum>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=12-Name"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=54.05459,-8.150847</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-StreetviewLink">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.823695,-8.068732</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.061219</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne9a30d63ab3c45fe8f4ea005bad37214">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">54.05459</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hodson Bay</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=13">
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-Type"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-LocationComment"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-WGS84Latitude"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-OBJECTID"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=13-StreetviewLink"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#contains">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#tableSchema">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N104c7cad7e8648369119435497c0173a">
+    <rdf:rest rdf:nodeID="Nc1493e9f642a4028b424e233f63bbd2e"/>
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4bc95ec4f0284205ba6db0049f370b8e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ndb04ee4a6e2d4b2eb7009c850ea34542"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#datatype">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N9543984e9a004bcb8f66d43d52ad782f"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.150847</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.591238</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Roosky Village</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#WGS84Latitude">
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.807332</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#populationCompleteness">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.0974</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.919495</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.992062</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column#OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <csvw:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <csvtordf:stdDev rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.18</csvtordf:stdDev>
+    <csvtordf:mean rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.5</csvtordf:mean>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.823695</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gailey Bay</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coreenford</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndb04ee4a6e2d4b2eb7009c850ea34542">
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:rest rdf:nodeID="Ne9a30d63ab3c45fe8f4ea005bad37214"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#invalidDate">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#hasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:nodeID="Ncf152aed898145599563f77c68d7a592"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=13-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-WGS84Longitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-8.233919</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=54.0610754,-8.166618</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grange Lake, Roosky</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.675877</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.467507</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncf152aed898145599563f77c68d7a592">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N981a8961c0254daab0f26d113dce64c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row=18">
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-StreetviewLink"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-LocationComment"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-WGS84Latitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-OBJECTID"/>
+    <csvw:rownum rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18</csvw:rownum>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-Name"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-WGS84Longitude"/>
+    <csvtordf:contains rdf:resource="http://www.w3.org/ns/csvw#Cell=18-Type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.577734</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-WGS84Latitude">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.426291</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tarmonbarry</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lough Meelagh Amenity Area</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=18-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.741966</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lanesborough</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">54.060761</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=11-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lanesborough</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-Name">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Knockvicar</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.467053,-8.276472</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#null">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="N4bc95ec4f0284205ba6db0049f370b8e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=12-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-StreetviewLink">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.google.com/maps?q=&amp;layer=c&amp;cbll=53.998907,-8.194973</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=1-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=10-Type">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-WGS84Longitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-7.992062</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=16-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#column">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=15-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=9-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=5-Type">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Slipways</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Table">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N773a8fccf18e40959b4c665a70b7e2cb">
+    <rdf:first rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=8-Name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kilglass,</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Row">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=6-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.281975</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=2-WGS84Latitude">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.467053</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=4-OBJECTID">
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</csvtordf:hasValue>
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-OBJECTID">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    <csvtordf:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</csvtordf:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Datatype">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=7-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#table">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=14-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=3-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell=17-LocationComment">
+    <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+  </rdf:Description>
+</rdf:RDF>

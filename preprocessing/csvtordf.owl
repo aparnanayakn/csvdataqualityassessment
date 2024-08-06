@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.archive.org/domain/csvtordf#"
+     xml:base="https://purl.archive.org/domain/csvtordf"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:csvw="http://www.w3.org/ns/csvw#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://purl.archive.org/domain/csvtordf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#column -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#column">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#describes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#describes">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#row -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#row">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#table -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#table">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#tableSchema -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#tableSchema">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#contains -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#contains">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#datatype -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#datatype">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#format -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#format">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#null -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#null">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#rowTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#rowTitle">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#rownum -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#rownum">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#fileModified -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#fileModified">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#fileSize -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#fileSize">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#invalidDate -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#invalidDate">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#lang -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#lang">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#mean -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#mean">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#populationCompleteness -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#populationCompleteness">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#stdDev -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#stdDev">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Cell -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Cell">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Column -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Column">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Datatype -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Datatype"/>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Row -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Row">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Schema -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#Table -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Table"/>
+    
+
+
+    <!-- http://www.w3.org/ns/csvw#TableGroup -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#TableGroup"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
