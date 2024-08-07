@@ -128,7 +128,10 @@
 
     <!-- https://purl.archive.org/domain/csvtordf#belongsToTable -->
 
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#belongsToTable"/>
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#belongsToTable">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:ObjectProperty>
     
 
 
@@ -143,19 +146,28 @@
 
     <!-- https://purl.archive.org/domain/csvtordf#describesTable -->
 
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#describesTable"/>
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#describesTable">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://purl.archive.org/domain/csvtordf#hasColumn -->
 
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasColumn"/>
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasColumn">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://purl.archive.org/domain/csvtordf#isDescribedOf -->
 
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#isDescribedOf"/>
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#isDescribedOf">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+    </owl:ObjectProperty>
     
 
 
