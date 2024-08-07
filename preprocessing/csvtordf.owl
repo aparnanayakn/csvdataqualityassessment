@@ -109,7 +109,10 @@
 
     <!-- https://purl.archive.org/domain/csvtordf#belongsToGroup -->
 
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#belongsToGroup"/>
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#belongsToGroup">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
+    </owl:ObjectProperty>
     
 
 
@@ -117,6 +120,8 @@
 
     <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#belongsToRow">
         <owl:inverseOf rdf:resource="https://purl.archive.org/domain/csvtordf#contains"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Row"/>
     </owl:ObjectProperty>
     
 
@@ -364,6 +369,9 @@
     <!-- http://www.w3.org/ns/csvw#Datatype -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/csvw#Datatype">
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#Row"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
         <rdfs:comment>Describes facets of a datatype.</rdfs:comment>
     </owl:Class>
     
@@ -381,6 +389,7 @@
     <!-- http://www.w3.org/ns/csvw#Schema -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/csvw#Schema">
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
         <rdfs:comment>A Schema is a definition of a tabular format that may be common to multiple tables.</rdfs:comment>
     </owl:Class>
     
