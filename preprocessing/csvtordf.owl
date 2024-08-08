@@ -135,6 +135,22 @@
     
 
 
+    <!-- https://purl.archive.org/domain/csvtordf#constraintType -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#constraintType">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://purl.archive.org/domain/csvtordf#DataQuality"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purl.archive.org/domain/csvtordf#contains -->
 
     <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#contains">
@@ -246,6 +262,54 @@
     
 
 
+    <!-- https://purl.archive.org/domain/csvtordf#constraintElement -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#constraintElement">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#float"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#int"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#expectedDT -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#expectedDT">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#float"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#int"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://purl.archive.org/domain/csvtordf#fileModified -->
 
     <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#fileModified">
@@ -266,6 +330,30 @@
     
 
 
+    <!-- https://purl.archive.org/domain/csvtordf#foundDT -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#foundDT">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#float"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#int"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://purl.archive.org/domain/csvtordf#hasValue -->
 
     <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasValue">
@@ -275,6 +363,7 @@
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell"/>
                     <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/domain/csvtordf#DataQuality"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -325,16 +414,6 @@
         <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:comment xml:lang="en">Represents mean value of the column if it has numeric value.</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://purl.archive.org/domain/csvtordf#populationCompleteness -->
-
-    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#populationCompleteness">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-        <rdfs:comment xml:lang="en">Represents percentaga of missing values.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -420,9 +499,40 @@
     <owl:Class rdf:about="http://www.w3.org/ns/csvw#TableGroup">
         <rdfs:comment xml:lang="en">A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#Completeness -->
+
+    <owl:Class rdf:about="https://purl.archive.org/domain/csvtordf#Completeness">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/domain/csvtordf#DataQuality"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#DataQuality -->
+
+    <owl:Class rdf:about="https://purl.archive.org/domain/csvtordf#DataQuality"/>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#Outliers -->
+
+    <owl:Class rdf:about="https://purl.archive.org/domain/csvtordf#Outliers">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/domain/csvtordf#DataQuality"/>
+        <owl:disjointWith rdf:resource="https://purl.archive.org/domain/csvtordf#SyntaxAccuracy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#SyntaxAccuracy -->
+
+    <owl:Class rdf:about="https://purl.archive.org/domain/csvtordf#SyntaxAccuracy">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/domain/csvtordf#DataQuality"/>
+    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
