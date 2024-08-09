@@ -1,0 +1,961 @@
+@prefix : <https://purl.archive.org/domain/csvtordf#> .
+@prefix csvtordf: <https://purl.archive.org/domain/csvtordf#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+csvw:column a owl:ObjectProperty ;
+    rdfs:comment "An array property of column descriptions."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Schema ;
+    owl:inverseOf csvtordf:hasColumn .
+
+csvw:datatype a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:range csvw:Datatype .
+
+csvw:describes a owl:ObjectProperty ;
+    rdfs:comment "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource."@en ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Column ;
+    owl:inverseOf csvtordf:isDescribedOf .
+
+csvw:format a owl:DatatypeProperty ;
+    rdfs:comment "Format of the file like comma seperated, tab seperated etc."@en ;
+    rdfs:domain csvw:Datatype ;
+    rdfs:range xsd:string .
+
+csvw:null a owl:DatatypeProperty ;
+    rdfs:comment "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is 'null'."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:range xsd:string .
+
+csvw:row a owl:ObjectProperty ;
+    rdfs:comment "Relates a Table to each Row output."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:Row ;
+    owl:inverseOf csvtordf:belongsToTable .
+
+csvw:rowTitle a owl:DatatypeProperty ;
+    rdfs:comment "A column reference property that holds either a single reference to a column description object or an array of references."@en ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range xsd:string .
+
+csvw:rownum a owl:DatatypeProperty ;
+    rdfs:comment "The position of the row amongst the rows of the Table, starting from 1"@en ;
+    rdfs:domain csvw:Row ;
+    rdfs:range xsd:int .
+
+csvw:table a owl:ObjectProperty ;
+    rdfs:comment "Relates an Table group to annotated tables."@en ;
+    rdfs:domain csvw:TableGroup ;
+    rdfs:range csvw:Table ;
+    owl:inverseOf csvtordf:belongsToGroup .
+
+csvw:tableSchema a owl:ObjectProperty ;
+    rdfs:comment "An object property that provides a single schema description."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:Schema ;
+    owl:inverseOf csvtordf:describesTable .
+
+<https://purl.archive.org/domain/csvtordf> a owl:Ontology ;
+    dc:contributor "Bojan Bozi",
+        "Luca Longo" ;
+    dc:creator "Aparna Nayak" ;
+    rdfs:comment "The CSV2RDF ontology leverages the CSVW (CSV on the Web) vocabulary to facilitate the transformation of tabular data from CSV files into RDF (Resource Description Framework) format, enabling seamless integration and sharing of data across the Semantic Web.The CSV2RDF ontology extends its capabilities by incorporating data quality information directly within the RDF output. This enhancement allows for the explicit modeling of syntax accuracy, completeness, and other quality metrics alongside the structured data, ensuring that data consumers can access the data for its reliability and suitability for various applications. The CSV2RDF ontology thus provides a comprehensive framework for both data conversion and the representation of associated metadata, bridging the gap between raw CSV data and the rich, interoperable world of linked data."@en ;
+    owl:versionInfo 2.0 .
+
+csvtordf:Completeness a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality .
+
+csvtordf:Outliers a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality ;
+    owl:disjointWith csvtordf:SyntaxAccuracy .
+
+csvtordf:Q1 a owl:DatatypeProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:Q3 a owl:DatatypeProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:belongsToColumn a owl:ObjectProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range csvw:Column ;
+    owl:inverseOf csvtordf:contains .
+
+csvtordf:constraintElement a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:constraintType a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Cell csvw:Column ) ] ;
+    rdfs:range csvtordf:DataQuality .
+
+csvtordf:expectedDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:fileModified a owl:DatatypeProperty ;
+    rdfs:comment "Timestamp of the last modified of file."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range xsd:dateTime .
+
+csvtordf:fileSize a owl:DatatypeProperty ;
+    rdfs:comment "Size of the file."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range xsd:float .
+
+csvtordf:foundDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:hasValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Represents cell value."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Cell csvw:Column csvtordf:DataQuality ) ] ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:invalidDate a owl:DatatypeProperty ;
+    rdfs:comment "Checks the data quality metric to see if there is any wrong date format."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:boolean .
+
+csvtordf:lang a owl:DatatypeProperty ;
+    rdfs:comment "Represents language of the value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:string .
+
+csvtordf:mean a owl:DatatypeProperty ;
+    rdfs:comment "Represents mean value of the column if it has numeric value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:stdDev a owl:DatatypeProperty ;
+    rdfs:comment "Represents standard deviation value of the column if it has numeric value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=1-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=1-Name> a csvw:Cell ;
+    csvtordf:hasValue "Athlone"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=1-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.426291,-7.945972"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=1-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=1-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.426291 .
+
+<http://www.w3.org/ns/csvw#Cell=1-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.945972 .
+
+<http://www.w3.org/ns/csvw#Cell=10-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=10-Name> a csvw:Cell ;
+    csvtordf:hasValue "Roosky Village"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=10-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 10 .
+
+<http://www.w3.org/ns/csvw#Cell=10-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.832267,-7.919495"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=10-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=10-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.832267 .
+
+<http://www.w3.org/ns/csvw#Cell=10-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.919495 .
+
+<http://www.w3.org/ns/csvw#Cell=11-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=11-Name> a csvw:Cell ;
+    csvtordf:hasValue "Cortober"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=11-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 11 .
+
+<http://www.w3.org/ns/csvw#Cell=11-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.942351,-8.0974"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=11-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=11-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.942351 .
+
+<http://www.w3.org/ns/csvw#Cell=11-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.0974 .
+
+<http://www.w3.org/ns/csvw#Cell=12-LocationComment> a csvw:Cell ;
+    csvtordf:hasValue "Lough Meelagh Amenity Area"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=12-Name> a csvw:Cell ;
+    csvtordf:hasValue "Keadue"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=12-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 12 .
+
+<http://www.w3.org/ns/csvw#Cell=12-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=54.0610754,-8.166618"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=12-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=12-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 54.060761 .
+
+<http://www.w3.org/ns/csvw#Cell=12-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.167211 .
+
+<http://www.w3.org/ns/csvw#Cell=13-LocationComment> a csvw:Cell ;
+    csvtordf:hasValue "Knockranny Amenity Area"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=13-Name> a csvw:Cell ;
+    csvtordf:hasValue "Keadue"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=13-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 13 .
+
+<http://www.w3.org/ns/csvw#Cell=13-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=54.05459,-8.150847"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=13-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=13-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 54.05459 .
+
+<http://www.w3.org/ns/csvw#Cell=13-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.150847 .
+
+<http://www.w3.org/ns/csvw#Cell=14-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=14-Name> a csvw:Cell ;
+    csvtordf:hasValue "Cootehall"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=14-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 14 .
+
+<http://www.w3.org/ns/csvw#Cell=14-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.981441,-8.160829"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=14-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=14-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.981441 .
+
+<http://www.w3.org/ns/csvw#Cell=14-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.160829 .
+
+<http://www.w3.org/ns/csvw#Cell=15-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=15-Name> a csvw:Cell ;
+    csvtordf:hasValue "Knockvicar"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=15-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=15-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.998907,-8.194973"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=15-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=15-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.998907 .
+
+<http://www.w3.org/ns/csvw#Cell=15-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.194973 .
+
+<http://www.w3.org/ns/csvw#Cell=16-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=16-Name> a csvw:Cell ;
+    csvtordf:hasValue "Rockingham"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=16-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 16 .
+
+<http://www.w3.org/ns/csvw#Cell=16-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.985524,-8.233919"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=16-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=16-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.985524 .
+
+<http://www.w3.org/ns/csvw#Cell=16-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.233919 .
+
+<http://www.w3.org/ns/csvw#Cell=17-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=17-Name> a csvw:Cell ;
+    csvtordf:hasValue "Lanesborough"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=17-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 17 .
+
+<http://www.w3.org/ns/csvw#Cell=17-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.675877,-7.992062"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=17-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=17-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.675877 .
+
+<http://www.w3.org/ns/csvw#Cell=17-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.992062 .
+
+<http://www.w3.org/ns/csvw#Cell=18-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=18-Name> a csvw:Cell ;
+    csvtordf:hasValue "Tarmonbarry"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=18-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 18 .
+
+<http://www.w3.org/ns/csvw#Cell=18-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.741966,-7.918561"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=18-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=18-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.741966 .
+
+<http://www.w3.org/ns/csvw#Cell=18-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.918561 .
+
+<http://www.w3.org/ns/csvw#Cell=2-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=2-Name> a csvw:Cell ;
+    csvtordf:hasValue "Ballyforan"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=2-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=2-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.467053,-8.276472"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=2-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=2-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.467053 .
+
+<http://www.w3.org/ns/csvw#Cell=2-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.276472 .
+
+<http://www.w3.org/ns/csvw#Cell=3-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=3-Name> a csvw:Cell ;
+    csvtordf:hasValue "Gailey Bay"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=3-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=3-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.577734,-8.065614"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=3-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=3-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.577734 .
+
+<http://www.w3.org/ns/csvw#Cell=3-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.065614 .
+
+<http://www.w3.org/ns/csvw#Cell=4-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=4-Name> a csvw:Cell ;
+    csvtordf:hasValue "Hodson Bay"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=4-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=4-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.467507,-7.987609"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=4-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=4-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.467507 .
+
+<http://www.w3.org/ns/csvw#Cell=4-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.987609 .
+
+<http://www.w3.org/ns/csvw#Cell=5-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=5-Name> a csvw:Cell ;
+    csvtordf:hasValue "Portrunny Harbour"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=5-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.591238,-8.061219"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=5-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=5-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.591238 .
+
+<http://www.w3.org/ns/csvw#Cell=5-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.061219 .
+
+<http://www.w3.org/ns/csvw#Cell=6-LocationComment> a csvw:Cell ;
+    csvtordf:hasValue "between Ballinasloe  Shannon Bridge"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=6-Name> a csvw:Cell ;
+    csvtordf:hasValue "Coreenford"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=6-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 6 .
+
+<http://www.w3.org/ns/csvw#Cell=6-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.281975,-8.149057"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=6-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=6-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.281975 .
+
+<http://www.w3.org/ns/csvw#Cell=6-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.149057 .
+
+<http://www.w3.org/ns/csvw#Cell=7-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=7-Name> a csvw:Cell ;
+    csvtordf:hasValue "Lanesborough"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=7-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 7 .
+
+<http://www.w3.org/ns/csvw#Cell=7-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.675877,-7.992062"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=7-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=7-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.675877 .
+
+<http://www.w3.org/ns/csvw#Cell=7-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -7.992062 .
+
+<http://www.w3.org/ns/csvw#Cell=8-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=8-Name> a csvw:Cell ;
+    csvtordf:hasValue "Kilglass,"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=8-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 8 .
+
+<http://www.w3.org/ns/csvw#Cell=8-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.807332,-8.031077"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=8-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=8-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.807332 .
+
+<http://www.w3.org/ns/csvw#Cell=8-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.031077 .
+
+<http://www.w3.org/ns/csvw#Cell=9-LocationComment> a csvw:Cell .
+
+<http://www.w3.org/ns/csvw#Cell=9-Name> a csvw:Cell ;
+    csvtordf:hasValue "Grange Lake, Roosky"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=9-OBJECTID> a csvw:Cell ;
+    csvtordf:hasValue 9 .
+
+<http://www.w3.org/ns/csvw#Cell=9-StreetviewLink> a csvw:Cell ;
+    csvtordf:hasValue "https://www.google.com/maps?q=&layer=c&cbll=53.823695,-8.068732"^^xsd:anyURI .
+
+<http://www.w3.org/ns/csvw#Cell=9-Type> a csvw:Cell ;
+    csvtordf:hasValue "Public Slipways"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=9-WGS84Latitude> a csvw:Cell ;
+    csvtordf:hasValue 53.823695 .
+
+<http://www.w3.org/ns/csvw#Cell=9-WGS84Longitude> a csvw:Cell ;
+    csvtordf:hasValue -8.068732 .
+
+<http://www.w3.org/ns/csvw#Completeness#0> csvtordf:hasValue "0.11904761904761904"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Row=1> a csvw:Row ;
+    csvw:rownum "1"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=10> a csvw:Row ;
+    csvw:rownum "10"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=11> a csvw:Row ;
+    csvw:rownum "11"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=12> a csvw:Row ;
+    csvw:rownum "12"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=13> a csvw:Row ;
+    csvw:rownum "13"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=14> a csvw:Row ;
+    csvw:rownum "14"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=15> a csvw:Row ;
+    csvw:rownum "15"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=16> a csvw:Row ;
+    csvw:rownum "16"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=17> a csvw:Row ;
+    csvw:rownum "17"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=18> a csvw:Row ;
+    csvw:rownum "18"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=2> a csvw:Row ;
+    csvw:rownum "2"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=3> a csvw:Row ;
+    csvw:rownum "3"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=4> a csvw:Row ;
+    csvw:rownum "4"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=5> a csvw:Row ;
+    csvw:rownum "5"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=6> a csvw:Row ;
+    csvw:rownum "6"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=7> a csvw:Row ;
+    csvw:rownum "7"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=8> a csvw:Row ;
+    csvw:rownum "8"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+<http://www.w3.org/ns/csvw#Row=9> a csvw:Row ;
+    csvw:rownum "9"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#LocationComment>,
+        <http://www.w3.org/ns/csvw#Column#Name>,
+        <http://www.w3.org/ns/csvw#Column#OBJECTID>,
+        <http://www.w3.org/ns/csvw#Column#StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Column#Type>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Column#WGS84Longitude> .
+
+csvtordf:SyntaxAccuracy a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality .
+
+csvtordf:belongsToGroup a owl:ObjectProperty ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:TableGroup .
+
+csvtordf:belongsToTable a owl:ObjectProperty ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Table .
+
+csvtordf:contains a owl:ObjectProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Cell .
+
+csvtordf:describesTable a owl:ObjectProperty ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range csvw:Table .
+
+csvtordf:hasColumn a owl:ObjectProperty ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range csvw:Column .
+
+csvtordf:isDescribedOf a owl:ObjectProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Row .
+
+xsd:dateTimeStamp a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:decimal a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:double a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:TableGroup a owl:Class ;
+    rdfs:comment "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables."@en .
+
+xsd:anyURI a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:boolean a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:dateTime a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:int a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:integer a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvtordf:DataQuality a owl:Class .
+
+csvw:Schema a owl:Class ;
+    rdfs:comment "A Schema is a definition of a tabular format that may be common to multiple tables." ;
+    owl:disjointWith csvw:TableGroup .
+
+xsd:float a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:string a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:Table a owl:Class ;
+    rdfs:comment "A table represents a dataset or annotated table." ;
+    csvw:row <http://www.w3.org/ns/csvw#Row=1>,
+        <http://www.w3.org/ns/csvw#Row=10>,
+        <http://www.w3.org/ns/csvw#Row=11>,
+        <http://www.w3.org/ns/csvw#Row=12>,
+        <http://www.w3.org/ns/csvw#Row=13>,
+        <http://www.w3.org/ns/csvw#Row=14>,
+        <http://www.w3.org/ns/csvw#Row=15>,
+        <http://www.w3.org/ns/csvw#Row=16>,
+        <http://www.w3.org/ns/csvw#Row=17>,
+        <http://www.w3.org/ns/csvw#Row=18>,
+        <http://www.w3.org/ns/csvw#Row=2>,
+        <http://www.w3.org/ns/csvw#Row=3>,
+        <http://www.w3.org/ns/csvw#Row=4>,
+        <http://www.w3.org/ns/csvw#Row=5>,
+        <http://www.w3.org/ns/csvw#Row=6>,
+        <http://www.w3.org/ns/csvw#Row=7>,
+        <http://www.w3.org/ns/csvw#Row=8>,
+        <http://www.w3.org/ns/csvw#Row=9> ;
+    csvtordf:hasQualityProblems <http://www.w3.org/ns/csvw#Completeness#0> .
+
+csvw:Datatype a owl:Class ;
+    rdfs:comment "Describes facets of a datatype." ;
+    owl:disjointWith csvw:Row,
+        csvw:Schema,
+        csvw:TableGroup .
+
+<http://www.w3.org/ns/csvw#Column#LocationComment> a csvw:Column ;
+    csvw:datatype xsd:string ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=10-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=11-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=12-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=13-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=14-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=15-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=16-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=17-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=18-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=2-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=3-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=4-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=5-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=6-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=7-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=8-LocationComment>,
+        <http://www.w3.org/ns/csvw#Cell=9-LocationComment> .
+
+<http://www.w3.org/ns/csvw#Column#Name> a csvw:Column ;
+    csvw:datatype xsd:string ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Name>,
+        <http://www.w3.org/ns/csvw#Cell=10-Name>,
+        <http://www.w3.org/ns/csvw#Cell=11-Name>,
+        <http://www.w3.org/ns/csvw#Cell=12-Name>,
+        <http://www.w3.org/ns/csvw#Cell=13-Name>,
+        <http://www.w3.org/ns/csvw#Cell=14-Name>,
+        <http://www.w3.org/ns/csvw#Cell=15-Name>,
+        <http://www.w3.org/ns/csvw#Cell=16-Name>,
+        <http://www.w3.org/ns/csvw#Cell=17-Name>,
+        <http://www.w3.org/ns/csvw#Cell=18-Name>,
+        <http://www.w3.org/ns/csvw#Cell=2-Name>,
+        <http://www.w3.org/ns/csvw#Cell=3-Name>,
+        <http://www.w3.org/ns/csvw#Cell=4-Name>,
+        <http://www.w3.org/ns/csvw#Cell=5-Name>,
+        <http://www.w3.org/ns/csvw#Cell=6-Name>,
+        <http://www.w3.org/ns/csvw#Cell=7-Name>,
+        <http://www.w3.org/ns/csvw#Cell=8-Name>,
+        <http://www.w3.org/ns/csvw#Cell=9-Name> ;
+    csvtordf:language "en" .
+
+<http://www.w3.org/ns/csvw#Column#OBJECTID> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=10-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=11-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=12-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=13-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=14-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=15-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=16-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=17-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=18-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=2-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=3-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=4-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=5-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=6-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=7-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=8-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=9-OBJECTID> ;
+    csvtordf:mean "9.5"^^xsd:float ;
+    csvtordf:stdDev "5.18"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Column#StreetviewLink> a csvw:Column ;
+    csvw:datatype xsd:anyURI ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=10-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=11-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=12-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=13-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=14-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=15-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=16-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=17-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=18-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=2-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=3-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=4-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=5-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=6-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=7-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=8-StreetviewLink>,
+        <http://www.w3.org/ns/csvw#Cell=9-StreetviewLink> .
+
+<http://www.w3.org/ns/csvw#Column#Type> a csvw:Column ;
+    csvw:datatype xsd:string ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Type>,
+        <http://www.w3.org/ns/csvw#Cell=10-Type>,
+        <http://www.w3.org/ns/csvw#Cell=11-Type>,
+        <http://www.w3.org/ns/csvw#Cell=12-Type>,
+        <http://www.w3.org/ns/csvw#Cell=13-Type>,
+        <http://www.w3.org/ns/csvw#Cell=14-Type>,
+        <http://www.w3.org/ns/csvw#Cell=15-Type>,
+        <http://www.w3.org/ns/csvw#Cell=16-Type>,
+        <http://www.w3.org/ns/csvw#Cell=17-Type>,
+        <http://www.w3.org/ns/csvw#Cell=18-Type>,
+        <http://www.w3.org/ns/csvw#Cell=2-Type>,
+        <http://www.w3.org/ns/csvw#Cell=3-Type>,
+        <http://www.w3.org/ns/csvw#Cell=4-Type>,
+        <http://www.w3.org/ns/csvw#Cell=5-Type>,
+        <http://www.w3.org/ns/csvw#Cell=6-Type>,
+        <http://www.w3.org/ns/csvw#Cell=7-Type>,
+        <http://www.w3.org/ns/csvw#Cell=8-Type>,
+        <http://www.w3.org/ns/csvw#Cell=9-Type> ;
+    csvtordf:language "en" .
+
+<http://www.w3.org/ns/csvw#Column#WGS84Latitude> a csvw:Column ;
+    csvw:datatype xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=10-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=11-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=12-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=13-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=14-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=15-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=16-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=17-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=18-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=2-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=3-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=4-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=5-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=6-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=7-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=8-WGS84Latitude>,
+        <http://www.w3.org/ns/csvw#Cell=9-WGS84Latitude> ;
+    csvtordf:mean "9.5"^^xsd:float ;
+    csvtordf:stdDev "5.18"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Column#WGS84Longitude> a csvw:Column ;
+    csvw:datatype xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=10-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=11-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=12-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=13-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=14-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=15-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=16-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=17-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=18-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=2-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=3-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=4-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=5-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=6-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=7-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=8-WGS84Longitude>,
+        <http://www.w3.org/ns/csvw#Cell=9-WGS84Longitude> ;
+    csvtordf:mean "9.5"^^xsd:float ;
+    csvtordf:stdDev "5.18"^^xsd:float .
+
+csvw:Column a owl:Class ;
+    rdfs:comment "A Column represents a vertical arrangement of Cells within a Table."@en ;
+    rdfs:subClassOf csvw:Table .
+
+csvw:Row a owl:Class ;
+    rdfs:comment "A Row represents a horizontal arrangement of cells within a Table."@en ;
+    rdfs:subClassOf csvw:Table .
+
+csvw:Cell a owl:Class ;
+    rdfs:comment "A Cell represents a cell at the intersection of a Row and a Column within a Table." ;
+    rdfs:subClassOf csvw:Table .
+

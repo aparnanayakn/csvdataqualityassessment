@@ -1,19 +1,18 @@
-RegionID,AreaID,Area,Year,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
-20,1,Carlow Kilkenny South Tipperary,2015,1,1,0,0,0,0,0,0,0,1,1,1
-19,2,Cavan Monaghan,2015,0,0,0,0,0,0,0,0,0,0,0,0
-20,3,Cork,2015,1,1,1,0,1,1,0,0,0,0,1,1
-21,4,Donegal,2015,0,0,0,0,0,0,0,0,0,0,0,0
-19,5,Dublin North,2015,3,3,3,3,4,5,5,5,5,4,5,5
-19,6,Dublin City North,2015,3,3,4,2,3,4,3,3,2,2,3,2
-18,7,Dublin South Central,2015,1,1,1,2,1,1,2,2,2,2,1,1
-18,8,Dublin South East Wicklow,2015,0,0,1,1,1,1,1,1,1,1,1,1
-18,9,Dublin South West Kildare West Wicklow,2015,4,4,4,5,4,3,3,3,3,1,1,1
-21,10,Galway Roscommon,2015,1,0,0,0,0,0,0,0,0,0,0,1
-20,11,Kerry,2015,1,1,1,1,1,0,0,0,0,0,0,0
-19,12,Louth Meath,2015,0,0,0,0,0,0,0,0,0,0,0,0
-21,13,Mayo,2015,0,0,0,0,0,0,0,0,0,0,0,0
-21,14,The Midwest,2015,1,1,1,1,1,1,1,1,1,2,3,3
-18,15,The Midlands,2015,0,0,0,0,0,0,0,0,0,0,0,0
-21,16,Sligo Leitrim West Cavan,2015,0,0,0,0,0,0,0,0,0,0,0,0
-20,17,Waterford Wexford,2015,1,1,1,0,0,0,0,0,0,0,0,0
-22,22,Social Work Team for Separated Children Seeking Asylum (SWTSCSA),2015,,,,,,,,,,,,
+"RegionID","AreaID","Area","Year","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
+20,1,"Carlow Kilkenny South Tipperary",2015,1,1,0,0,0,0,0,0,0,1,1,1
+19,2,"Cavan Monaghan",2015,0,0,0,0,0,0,0,0,0,0,0,0
+20,3,"Cork",2015,1,1,1,0,1,1,0,0,0,0,1,1
+21,4,"Donegal",2015,0,0,0,0,0,0,0,0,0,0,0,0
+19,5,"Dublin North",2015,3,3,3,3,4,5,5,5,5,4,5,5
+19,6,"Dublin City North",2015,3,3,4,2,3,4,3,3,2,2,3,2
+18,7,"Dublin South Central",2015,1,1,1,2,1,1,2,2,2,2,1,1
+18,8,"Dublin South East Wicklow",2015,0,0,1,1,1,1,1,1,1,1,1,1
+18,9,"Dublin South West Kildare West Wicklow",2015,4,4,4,5,4,3,3,3,3,1,1,1
+21,10,"Galway Roscommon",2015,1,0,0,0,0,0,0,0,0,0,0,1
+20,11,"Kerry",2015,1,1,1,1,1,0,0,0,0,0,0,0
+19,12,"Louth Meath",2015,0,0,0,0,0,0,0,0,0,0,0,0
+21,13,"Mayo",2015,0,0,0,0,0,0,0,0,0,0,0,0
+21,14,"The Midwest",2015,1,1,1,1,1,1,1,1,1,2,3,3
+18,15,"The Midlands",2015,0,0,0,0,0,0,0,0,0,0,0,0
+21,16,"Sligo Leitrim West Cavan",2015,0,0,0,0,0,0,0,0,0,0,0,0
+20,17,"Waterford Wexford",2015,1,1,1,0,0,0,0,0,0,0,0,0

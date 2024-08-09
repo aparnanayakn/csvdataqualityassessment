@@ -1,0 +1,1749 @@
+@prefix : <https://purl.archive.org/domain/csvtordf#> .
+@prefix csvtordf: <https://purl.archive.org/domain/csvtordf#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+csvw:column a owl:ObjectProperty ;
+    rdfs:comment "An array property of column descriptions."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Schema ;
+    owl:inverseOf csvtordf:hasColumn .
+
+csvw:datatype a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:range csvw:Datatype .
+
+csvw:describes a owl:ObjectProperty ;
+    rdfs:comment "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource."@en ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Column ;
+    owl:inverseOf csvtordf:isDescribedOf .
+
+csvw:format a owl:DatatypeProperty ;
+    rdfs:comment "Format of the file like comma seperated, tab seperated etc."@en ;
+    rdfs:domain csvw:Datatype ;
+    rdfs:range xsd:string .
+
+csvw:null a owl:DatatypeProperty ;
+    rdfs:comment "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is 'null'."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:range xsd:string .
+
+csvw:row a owl:ObjectProperty ;
+    rdfs:comment "Relates a Table to each Row output."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:Row ;
+    owl:inverseOf csvtordf:belongsToTable .
+
+csvw:rowTitle a owl:DatatypeProperty ;
+    rdfs:comment "A column reference property that holds either a single reference to a column description object or an array of references."@en ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range xsd:string .
+
+csvw:rownum a owl:DatatypeProperty ;
+    rdfs:comment "The position of the row amongst the rows of the Table, starting from 1"@en ;
+    rdfs:domain csvw:Row ;
+    rdfs:range xsd:int .
+
+csvw:table a owl:ObjectProperty ;
+    rdfs:comment "Relates an Table group to annotated tables."@en ;
+    rdfs:domain csvw:TableGroup ;
+    rdfs:range csvw:Table ;
+    owl:inverseOf csvtordf:belongsToGroup .
+
+csvw:tableSchema a owl:ObjectProperty ;
+    rdfs:comment "An object property that provides a single schema description."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:Schema ;
+    owl:inverseOf csvtordf:describesTable .
+
+<https://purl.archive.org/domain/csvtordf> a owl:Ontology ;
+    dc:contributor "Bojan Bozi",
+        "Luca Longo" ;
+    dc:creator "Aparna Nayak" ;
+    rdfs:comment "The CSV2RDF ontology leverages the CSVW (CSV on the Web) vocabulary to facilitate the transformation of tabular data from CSV files into RDF (Resource Description Framework) format, enabling seamless integration and sharing of data across the Semantic Web.The CSV2RDF ontology extends its capabilities by incorporating data quality information directly within the RDF output. This enhancement allows for the explicit modeling of syntax accuracy, completeness, and other quality metrics alongside the structured data, ensuring that data consumers can access the data for its reliability and suitability for various applications. The CSV2RDF ontology thus provides a comprehensive framework for both data conversion and the representation of associated metadata, bridging the gap between raw CSV data and the rich, interoperable world of linked data."@en ;
+    owl:versionInfo 2.0 .
+
+csvtordf:Completeness a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality .
+
+csvtordf:Outliers a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality ;
+    owl:disjointWith csvtordf:SyntaxAccuracy .
+
+csvtordf:Q1 a owl:DatatypeProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:Q3 a owl:DatatypeProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:belongsToColumn a owl:ObjectProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range csvw:Column ;
+    owl:inverseOf csvtordf:contains .
+
+csvtordf:constraintElement a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:constraintType a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Cell csvw:Column ) ] ;
+    rdfs:range csvtordf:DataQuality .
+
+csvtordf:expectedDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:fileModified a owl:DatatypeProperty ;
+    rdfs:comment "Timestamp of the last modified of file."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range xsd:dateTime .
+
+csvtordf:fileSize a owl:DatatypeProperty ;
+    rdfs:comment "Size of the file."@en ;
+    rdfs:domain csvw:Table ;
+    rdfs:range xsd:float .
+
+csvtordf:foundDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:hasValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Represents cell value."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( csvw:Cell csvw:Column csvtordf:DataQuality ) ] ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+
+csvtordf:invalidDate a owl:DatatypeProperty ;
+    rdfs:comment "Checks the data quality metric to see if there is any wrong date format."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:boolean .
+
+csvtordf:lang a owl:DatatypeProperty ;
+    rdfs:comment "Represents language of the value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:string .
+
+csvtordf:mean a owl:DatatypeProperty ;
+    rdfs:comment "Represents mean value of the column if it has numeric value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+csvtordf:stdDev a owl:DatatypeProperty ;
+    rdfs:comment "Represents standard deviation value of the column if it has numeric value."@en ;
+    rdfs:domain csvw:Column ;
+    rdfs:range xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=1-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Area> a csvw:Cell ;
+    csvtordf:hasValue "Carlow Kilkenny South Tipperary"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=1-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Nov> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Oct> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=1-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 20 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=1-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Area> a csvw:Cell ;
+    csvtordf:hasValue "Galway Roscommon"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=10-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 10 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 21 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=10-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Apr> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Area> a csvw:Cell ;
+    csvtordf:hasValue "Kerry"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=11-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 11 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=11-May> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 20 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=11-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Area> a csvw:Cell ;
+    csvtordf:hasValue "Louth Meath"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=12-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 12 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 19 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=12-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Area> a csvw:Cell ;
+    csvtordf:hasValue "Mayo"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=13-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 13 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 21 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=13-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Apr> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Area> a csvw:Cell ;
+    csvtordf:hasValue "The Midwest"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=14-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 14 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Aug> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Dec> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Jul> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Jun> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-May> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Nov> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Oct> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=14-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 21 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Sep> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=14-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Area> a csvw:Cell ;
+    csvtordf:hasValue "The Midlands"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=15-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 18 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=15-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Area> a csvw:Cell ;
+    csvtordf:hasValue "Sligo Leitrim West Cavan"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=16-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 16 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 21 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=16-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Area> a csvw:Cell ;
+    csvtordf:hasValue "Waterford Wexford"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=17-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 17 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=17-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 20 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=17-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Area> a csvw:Cell ;
+    csvtordf:hasValue "Cavan Monaghan"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=2-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 19 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=2-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Area> a csvw:Cell ;
+    csvtordf:hasValue "Cork"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=3-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Jun> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-May> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Nov> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=3-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 20 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=3-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Apr> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Area> a csvw:Cell ;
+    csvtordf:hasValue "Donegal"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=4-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Aug> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Dec> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Jul> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Jun> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Mar> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-May> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Nov> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Oct> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 21 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Sep> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=4-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Apr> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Area> a csvw:Cell ;
+    csvtordf:hasValue "Dublin North"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=5-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Aug> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Dec> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Feb> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Jan> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Jul> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Jun> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Mar> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=5-May> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Nov> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Oct> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=5-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 19 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Sep> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=5-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Apr> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Area> a csvw:Cell ;
+    csvtordf:hasValue "Dublin City North"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=6-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 6 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Aug> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Dec> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Feb> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Jan> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Jul> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Jun> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Mar> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=6-May> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Nov> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Oct> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=6-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 19 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Sep> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=6-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Apr> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Area> a csvw:Cell ;
+    csvtordf:hasValue "Dublin South Central"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=7-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 7 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Aug> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Feb> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Jan> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Jul> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Jun> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-May> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Nov> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Oct> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=7-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 18 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Sep> a csvw:Cell ;
+    csvtordf:hasValue 2 .
+
+<http://www.w3.org/ns/csvw#Cell=7-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Apr> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Area> a csvw:Cell ;
+    csvtordf:hasValue "Dublin South East Wicklow"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=8-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 8 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Aug> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Feb> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Jan> a csvw:Cell ;
+    csvtordf:hasValue 0 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Jul> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Jun> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Mar> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-May> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Nov> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Oct> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 18 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Sep> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=8-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Apr> a csvw:Cell ;
+    csvtordf:hasValue 5 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Area> a csvw:Cell ;
+    csvtordf:hasValue "Dublin South West Kildare West Wicklow"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=9-AreaID> a csvw:Cell ;
+    csvtordf:hasValue 9 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Aug> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Dec> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Feb> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Jan> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Jul> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Jun> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Mar> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=9-May> a csvw:Cell ;
+    csvtordf:hasValue 4 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Nov> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Oct> a csvw:Cell ;
+    csvtordf:hasValue 1 .
+
+<http://www.w3.org/ns/csvw#Cell=9-RegionID> a csvw:Cell ;
+    csvtordf:hasValue 18 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Sep> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=9-Year> a csvw:Cell ;
+    csvtordf:hasValue 2015 .
+
+<http://www.w3.org/ns/csvw#Row=1> a csvw:Row ;
+    csvw:rownum "1"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=10> a csvw:Row ;
+    csvw:rownum "10"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=11> a csvw:Row ;
+    csvw:rownum "11"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=12> a csvw:Row ;
+    csvw:rownum "12"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=13> a csvw:Row ;
+    csvw:rownum "13"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=14> a csvw:Row ;
+    csvw:rownum "14"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=15> a csvw:Row ;
+    csvw:rownum "15"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=16> a csvw:Row ;
+    csvw:rownum "16"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=17> a csvw:Row ;
+    csvw:rownum "17"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=2> a csvw:Row ;
+    csvw:rownum "2"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=3> a csvw:Row ;
+    csvw:rownum "3"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=4> a csvw:Row ;
+    csvw:rownum "4"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=5> a csvw:Row ;
+    csvw:rownum "5"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=6> a csvw:Row ;
+    csvw:rownum "6"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=7> a csvw:Row ;
+    csvw:rownum "7"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=8> a csvw:Row ;
+    csvw:rownum "8"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+<http://www.w3.org/ns/csvw#Row=9> a csvw:Row ;
+    csvw:rownum "9"^^xsd:int ;
+    csvtordf:describes <http://www.w3.org/ns/csvw#Column#Apr>,
+        <http://www.w3.org/ns/csvw#Column#Area>,
+        <http://www.w3.org/ns/csvw#Column#AreaID>,
+        <http://www.w3.org/ns/csvw#Column#Aug>,
+        <http://www.w3.org/ns/csvw#Column#Dec>,
+        <http://www.w3.org/ns/csvw#Column#Feb>,
+        <http://www.w3.org/ns/csvw#Column#Jan>,
+        <http://www.w3.org/ns/csvw#Column#Jul>,
+        <http://www.w3.org/ns/csvw#Column#Jun>,
+        <http://www.w3.org/ns/csvw#Column#Mar>,
+        <http://www.w3.org/ns/csvw#Column#May>,
+        <http://www.w3.org/ns/csvw#Column#Nov>,
+        <http://www.w3.org/ns/csvw#Column#Oct>,
+        <http://www.w3.org/ns/csvw#Column#RegionID>,
+        <http://www.w3.org/ns/csvw#Column#Sep>,
+        <http://www.w3.org/ns/csvw#Column#Year> .
+
+csvtordf:SyntaxAccuracy a owl:Class ;
+    rdfs:subClassOf csvtordf:DataQuality .
+
+csvtordf:belongsToGroup a owl:ObjectProperty ;
+    rdfs:domain csvw:Table ;
+    rdfs:range csvw:TableGroup .
+
+csvtordf:belongsToTable a owl:ObjectProperty ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Table .
+
+csvtordf:contains a owl:ObjectProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Cell .
+
+csvtordf:describesTable a owl:ObjectProperty ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range csvw:Table .
+
+csvtordf:hasColumn a owl:ObjectProperty ;
+    rdfs:domain csvw:Schema ;
+    rdfs:range csvw:Column .
+
+csvtordf:isDescribedOf a owl:ObjectProperty ;
+    rdfs:domain csvw:Column ;
+    rdfs:range csvw:Row .
+
+xsd:anyURI a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:dateTimeStamp a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:decimal a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:double a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:TableGroup a owl:Class ;
+    rdfs:comment "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables."@en .
+
+xsd:boolean a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:dateTime a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:int a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvtordf:DataQuality a owl:Class .
+
+csvw:Schema a owl:Class ;
+    rdfs:comment "A Schema is a definition of a tabular format that may be common to multiple tables." ;
+    owl:disjointWith csvw:TableGroup .
+
+xsd:float a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:string a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:Table a owl:Class ;
+    rdfs:comment "A table represents a dataset or annotated table." ;
+    csvw:row <http://www.w3.org/ns/csvw#Row=1>,
+        <http://www.w3.org/ns/csvw#Row=10>,
+        <http://www.w3.org/ns/csvw#Row=11>,
+        <http://www.w3.org/ns/csvw#Row=12>,
+        <http://www.w3.org/ns/csvw#Row=13>,
+        <http://www.w3.org/ns/csvw#Row=14>,
+        <http://www.w3.org/ns/csvw#Row=15>,
+        <http://www.w3.org/ns/csvw#Row=16>,
+        <http://www.w3.org/ns/csvw#Row=17>,
+        <http://www.w3.org/ns/csvw#Row=2>,
+        <http://www.w3.org/ns/csvw#Row=3>,
+        <http://www.w3.org/ns/csvw#Row=4>,
+        <http://www.w3.org/ns/csvw#Row=5>,
+        <http://www.w3.org/ns/csvw#Row=6>,
+        <http://www.w3.org/ns/csvw#Row=7>,
+        <http://www.w3.org/ns/csvw#Row=8>,
+        <http://www.w3.org/ns/csvw#Row=9> .
+
+csvw:Datatype a owl:Class ;
+    rdfs:comment "Describes facets of a datatype." ;
+    owl:disjointWith csvw:Row,
+        csvw:Schema,
+        csvw:TableGroup .
+
+<http://www.w3.org/ns/csvw#Column#Apr> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=10-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=11-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=12-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=13-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=14-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=15-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=16-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=17-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=2-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=3-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=4-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=5-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=6-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=7-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=8-Apr>,
+        <http://www.w3.org/ns/csvw#Cell=9-Apr> .
+
+<http://www.w3.org/ns/csvw#Column#Area> a csvw:Column ;
+    csvw:datatype xsd:string ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Area>,
+        <http://www.w3.org/ns/csvw#Cell=10-Area>,
+        <http://www.w3.org/ns/csvw#Cell=11-Area>,
+        <http://www.w3.org/ns/csvw#Cell=12-Area>,
+        <http://www.w3.org/ns/csvw#Cell=13-Area>,
+        <http://www.w3.org/ns/csvw#Cell=14-Area>,
+        <http://www.w3.org/ns/csvw#Cell=15-Area>,
+        <http://www.w3.org/ns/csvw#Cell=16-Area>,
+        <http://www.w3.org/ns/csvw#Cell=17-Area>,
+        <http://www.w3.org/ns/csvw#Cell=2-Area>,
+        <http://www.w3.org/ns/csvw#Cell=3-Area>,
+        <http://www.w3.org/ns/csvw#Cell=4-Area>,
+        <http://www.w3.org/ns/csvw#Cell=5-Area>,
+        <http://www.w3.org/ns/csvw#Cell=6-Area>,
+        <http://www.w3.org/ns/csvw#Cell=7-Area>,
+        <http://www.w3.org/ns/csvw#Cell=8-Area>,
+        <http://www.w3.org/ns/csvw#Cell=9-Area> ;
+    csvtordf:language "en" .
+
+<http://www.w3.org/ns/csvw#Column#AreaID> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=10-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=11-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=12-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=13-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=14-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=15-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=16-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=17-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=2-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=3-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=4-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=5-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=6-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=7-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=8-AreaID>,
+        <http://www.w3.org/ns/csvw#Cell=9-AreaID> ;
+    csvtordf:mean "9.0"^^xsd:float ;
+    csvtordf:stdDev "4.89"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Column#Aug> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=10-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=11-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=12-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=13-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=14-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=15-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=16-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=17-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=2-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=3-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=4-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=5-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=6-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=7-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=8-Aug>,
+        <http://www.w3.org/ns/csvw#Cell=9-Aug> .
+
+<http://www.w3.org/ns/csvw#Column#Dec> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=10-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=11-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=12-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=13-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=14-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=15-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=16-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=17-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=2-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=3-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=4-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=5-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=6-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=7-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=8-Dec>,
+        <http://www.w3.org/ns/csvw#Cell=9-Dec> .
+
+<http://www.w3.org/ns/csvw#Column#Feb> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=10-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=11-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=12-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=13-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=14-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=15-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=16-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=17-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=2-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=3-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=4-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=5-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=6-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=7-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=8-Feb>,
+        <http://www.w3.org/ns/csvw#Cell=9-Feb> .
+
+<http://www.w3.org/ns/csvw#Column#Jan> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=10-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=11-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=12-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=13-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=14-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=15-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=16-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=17-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=2-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=3-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=4-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=5-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=6-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=7-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=8-Jan>,
+        <http://www.w3.org/ns/csvw#Cell=9-Jan> .
+
+<http://www.w3.org/ns/csvw#Column#Jul> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=10-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=11-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=12-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=13-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=14-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=15-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=16-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=17-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=2-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=3-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=4-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=5-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=6-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=7-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=8-Jul>,
+        <http://www.w3.org/ns/csvw#Cell=9-Jul> .
+
+<http://www.w3.org/ns/csvw#Column#Jun> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=10-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=11-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=12-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=13-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=14-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=15-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=16-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=17-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=2-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=3-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=4-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=5-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=6-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=7-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=8-Jun>,
+        <http://www.w3.org/ns/csvw#Cell=9-Jun> .
+
+<http://www.w3.org/ns/csvw#Column#Mar> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=10-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=11-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=12-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=13-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=14-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=15-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=16-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=17-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=2-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=3-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=4-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=5-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=6-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=7-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=8-Mar>,
+        <http://www.w3.org/ns/csvw#Cell=9-Mar> .
+
+<http://www.w3.org/ns/csvw#Column#May> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-May>,
+        <http://www.w3.org/ns/csvw#Cell=10-May>,
+        <http://www.w3.org/ns/csvw#Cell=11-May>,
+        <http://www.w3.org/ns/csvw#Cell=12-May>,
+        <http://www.w3.org/ns/csvw#Cell=13-May>,
+        <http://www.w3.org/ns/csvw#Cell=14-May>,
+        <http://www.w3.org/ns/csvw#Cell=15-May>,
+        <http://www.w3.org/ns/csvw#Cell=16-May>,
+        <http://www.w3.org/ns/csvw#Cell=17-May>,
+        <http://www.w3.org/ns/csvw#Cell=2-May>,
+        <http://www.w3.org/ns/csvw#Cell=3-May>,
+        <http://www.w3.org/ns/csvw#Cell=4-May>,
+        <http://www.w3.org/ns/csvw#Cell=5-May>,
+        <http://www.w3.org/ns/csvw#Cell=6-May>,
+        <http://www.w3.org/ns/csvw#Cell=7-May>,
+        <http://www.w3.org/ns/csvw#Cell=8-May>,
+        <http://www.w3.org/ns/csvw#Cell=9-May> .
+
+<http://www.w3.org/ns/csvw#Column#Nov> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=10-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=11-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=12-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=13-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=14-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=15-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=16-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=17-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=2-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=3-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=4-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=5-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=6-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=7-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=8-Nov>,
+        <http://www.w3.org/ns/csvw#Cell=9-Nov> .
+
+<http://www.w3.org/ns/csvw#Column#Oct> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=10-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=11-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=12-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=13-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=14-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=15-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=16-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=17-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=2-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=3-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=4-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=5-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=6-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=7-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=8-Oct>,
+        <http://www.w3.org/ns/csvw#Cell=9-Oct> .
+
+<http://www.w3.org/ns/csvw#Column#RegionID> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "19.0"^^xsd:float ;
+    csvtordf:Q3 "21.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=10-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=11-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=12-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=13-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=14-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=15-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=16-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=17-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=2-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=3-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=4-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=5-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=6-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=7-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=8-RegionID>,
+        <http://www.w3.org/ns/csvw#Cell=9-RegionID> .
+
+<http://www.w3.org/ns/csvw#Column#Sep> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:Q1 "0.0"^^xsd:float ;
+    csvtordf:Q3 "1.0"^^xsd:float ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=10-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=11-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=12-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=13-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=14-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=15-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=16-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=17-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=2-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=3-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=4-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=5-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=6-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=7-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=8-Sep>,
+        <http://www.w3.org/ns/csvw#Cell=9-Sep> .
+
+<http://www.w3.org/ns/csvw#Column#Year> a csvw:Column ;
+    csvw:datatype xsd:integer ;
+    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Year>,
+        <http://www.w3.org/ns/csvw#Cell=10-Year>,
+        <http://www.w3.org/ns/csvw#Cell=11-Year>,
+        <http://www.w3.org/ns/csvw#Cell=12-Year>,
+        <http://www.w3.org/ns/csvw#Cell=13-Year>,
+        <http://www.w3.org/ns/csvw#Cell=14-Year>,
+        <http://www.w3.org/ns/csvw#Cell=15-Year>,
+        <http://www.w3.org/ns/csvw#Cell=16-Year>,
+        <http://www.w3.org/ns/csvw#Cell=17-Year>,
+        <http://www.w3.org/ns/csvw#Cell=2-Year>,
+        <http://www.w3.org/ns/csvw#Cell=3-Year>,
+        <http://www.w3.org/ns/csvw#Cell=4-Year>,
+        <http://www.w3.org/ns/csvw#Cell=5-Year>,
+        <http://www.w3.org/ns/csvw#Cell=6-Year>,
+        <http://www.w3.org/ns/csvw#Cell=7-Year>,
+        <http://www.w3.org/ns/csvw#Cell=8-Year>,
+        <http://www.w3.org/ns/csvw#Cell=9-Year> ;
+    csvtordf:mean "2015.0"^^xsd:float ;
+    csvtordf:stdDev "0.0"^^xsd:float .
+
+xsd:integer a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:Row a owl:Class ;
+    rdfs:comment "A Row represents a horizontal arrangement of cells within a Table."@en ;
+    rdfs:subClassOf csvw:Table .
+
+csvw:Column a owl:Class ;
+    rdfs:comment "A Column represents a vertical arrangement of Cells within a Table."@en ;
+    rdfs:subClassOf csvw:Table .
+
+csvw:Cell a owl:Class ;
+    rdfs:comment "A Cell represents a cell at the intersection of a Row and a Column within a Table." ;
+    rdfs:subClassOf csvw:Table .
+
