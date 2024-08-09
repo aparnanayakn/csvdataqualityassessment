@@ -69,7 +69,7 @@ csvw:tableSchema a owl:ObjectProperty ;
     owl:inverseOf csvtordf:describesTable .
 
 <https://purl.archive.org/domain/csvtordf> a owl:Ontology ;
-    dc:contributor "Bojan Bozi",
+    dc:contributor "Bojan Bozic",
         "Luca Longo" ;
     dc:creator "Aparna Nayak" ;
     rdfs:comment "The CSV2RDF ontology leverages the CSVW (CSV on the Web) vocabulary to facilitate the transformation of tabular data from CSV files into RDF (Resource Description Framework) format, enabling seamless integration and sharing of data across the Semantic Web.The CSV2RDF ontology extends its capabilities by incorporating data quality information directly within the RDF output. This enhancement allows for the explicit modeling of syntax accuracy, completeness, and other quality metrics alongside the structured data, ensuring that data consumers can access the data for its reliability and suitability for various applications. The CSV2RDF ontology thus provides a comprehensive framework for both data conversion and the representation of associated metadata, bridging the gap between raw CSV data and the rich, interoperable world of linked data."@en ;
@@ -168,10 +168,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.426291 .
+    csvtordf:hasValue "53.426291"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=1-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.945972 .
+    csvtordf:hasValue "-7.945972"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-LocationComment> a csvw:Cell .
 
@@ -188,10 +188,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.832267 .
+    csvtordf:hasValue "53.832267"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.919495 .
+    csvtordf:hasValue "-7.919495"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=11-LocationComment> a csvw:Cell .
 
@@ -208,10 +208,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.942351 .
+    csvtordf:hasValue "53.942351"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=11-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.0974 .
+    csvtordf:hasValue "-8.0974"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=12-LocationComment> a csvw:Cell ;
     csvtordf:hasValue "Lough Meelagh Amenity Area"^^xsd:string .
@@ -229,10 +229,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 54.060761 .
+    csvtordf:hasValue "54.060761"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=12-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.167211 .
+    csvtordf:hasValue "-8.167211"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=13-LocationComment> a csvw:Cell ;
     csvtordf:hasValue "Knockranny Amenity Area"^^xsd:string .
@@ -250,10 +250,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 54.05459 .
+    csvtordf:hasValue "54.05459"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=13-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.150847 .
+    csvtordf:hasValue "-8.150847"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=14-LocationComment> a csvw:Cell .
 
@@ -270,10 +270,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=14-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.981441 .
+    csvtordf:hasValue "53.981441"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=14-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.160829 .
+    csvtordf:hasValue "-8.160829"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=15-LocationComment> a csvw:Cell .
 
@@ -290,10 +290,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=15-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.998907 .
+    csvtordf:hasValue "53.998907"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=15-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.194973 .
+    csvtordf:hasValue "-8.194973"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=16-LocationComment> a csvw:Cell .
 
@@ -310,10 +310,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=16-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.985524 .
+    csvtordf:hasValue "53.985524"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=16-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.233919 .
+    csvtordf:hasValue "-8.233919"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=17-LocationComment> a csvw:Cell .
 
@@ -330,10 +330,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=17-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.675877 .
+    csvtordf:hasValue "53.675877"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=17-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.992062 .
+    csvtordf:hasValue "-7.992062"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=18-LocationComment> a csvw:Cell .
 
@@ -350,10 +350,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=18-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.741966 .
+    csvtordf:hasValue "53.741966"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=18-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.918561 .
+    csvtordf:hasValue "-7.918561"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=2-LocationComment> a csvw:Cell .
 
@@ -370,10 +370,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.467053 .
+    csvtordf:hasValue "53.467053"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=2-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.276472 .
+    csvtordf:hasValue "-8.276472"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=3-LocationComment> a csvw:Cell .
 
@@ -390,10 +390,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.577734 .
+    csvtordf:hasValue "53.577734"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=3-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.065614 .
+    csvtordf:hasValue "-8.065614"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=4-LocationComment> a csvw:Cell .
 
@@ -410,10 +410,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.467507 .
+    csvtordf:hasValue "53.467507"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=4-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.987609 .
+    csvtordf:hasValue "-7.987609"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=5-LocationComment> a csvw:Cell .
 
@@ -430,10 +430,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.591238 .
+    csvtordf:hasValue "53.591238"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=5-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.061219 .
+    csvtordf:hasValue "-8.061219"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=6-LocationComment> a csvw:Cell ;
     csvtordf:hasValue "between Ballinasloe  Shannon Bridge"^^xsd:string .
@@ -451,10 +451,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.281975 .
+    csvtordf:hasValue "53.281975"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=6-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.149057 .
+    csvtordf:hasValue "-8.149057"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=7-LocationComment> a csvw:Cell .
 
@@ -471,10 +471,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.675877 .
+    csvtordf:hasValue "53.675877"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=7-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -7.992062 .
+    csvtordf:hasValue "-7.992062"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=8-LocationComment> a csvw:Cell .
 
@@ -491,10 +491,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.807332 .
+    csvtordf:hasValue "53.807332"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=8-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.031077 .
+    csvtordf:hasValue "-8.031077"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=9-LocationComment> a csvw:Cell .
 
@@ -511,10 +511,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue "Public Slipways"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-WGS84Latitude> a csvw:Cell ;
-    csvtordf:hasValue 53.823695 .
+    csvtordf:hasValue "53.823695"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=9-WGS84Longitude> a csvw:Cell ;
-    csvtordf:hasValue -8.068732 .
+    csvtordf:hasValue "-8.068732"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Completeness#0> csvtordf:hasValue "0.11904761904761904"^^xsd:float .
 

@@ -69,7 +69,7 @@ csvw:tableSchema a owl:ObjectProperty ;
     owl:inverseOf csvtordf:describesTable .
 
 <https://purl.archive.org/domain/csvtordf> a owl:Ontology ;
-    dc:contributor "Bojan Bozi",
+    dc:contributor "Bojan Bozic",
         "Luca Longo" ;
     dc:creator "Aparna Nayak" ;
     rdfs:comment "The CSV2RDF ontology leverages the CSVW (CSV on the Web) vocabulary to facilitate the transformation of tabular data from CSV files into RDF (Resource Description Framework) format, enabling seamless integration and sharing of data across the Semantic Web.The CSV2RDF ontology extends its capabilities by incorporating data quality information directly within the RDF output. This enhancement allows for the explicit modeling of syntax accuracy, completeness, and other quality metrics alongside the structured data, ensuring that data consumers can access the data for its reliability and suitability for various applications. The CSV2RDF ontology thus provides a comprehensive framework for both data conversion and the representation of associated metadata, bridging the gap between raw CSV data and the rich, interoperable world of linked data."@en ;
@@ -793,8 +793,7 @@ csvw:Datatype a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=6-Address3>,
         <http://www.w3.org/ns/csvw#Cell=7-Address3>,
         <http://www.w3.org/ns/csvw#Cell=8-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=9-Address3> ;
-    csvtordf:language "pl" .
+        <http://www.w3.org/ns/csvw#Cell=9-Address3> .
 
 <http://www.w3.org/ns/csvw#Column#Authority> a csvw:Column ;
     csvw:datatype xsd:string ;
@@ -844,8 +843,7 @@ csvw:Datatype a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=6-Email>,
         <http://www.w3.org/ns/csvw#Cell=7-Email>,
         <http://www.w3.org/ns/csvw#Cell=8-Email>,
-        <http://www.w3.org/ns/csvw#Cell=9-Email> ;
-    csvtordf:language "pl" .
+        <http://www.w3.org/ns/csvw#Cell=9-Email> .
 
 <http://www.w3.org/ns/csvw#Column#OBJECTID> a csvw:Column ;
     csvw:datatype xsd:integer ;

@@ -69,7 +69,7 @@ csvw:tableSchema a owl:ObjectProperty ;
     owl:inverseOf csvtordf:describesTable .
 
 <https://purl.archive.org/domain/csvtordf> a owl:Ontology ;
-    dc:contributor "Bojan Bozi",
+    dc:contributor "Bojan Bozic",
         "Luca Longo" ;
     dc:creator "Aparna Nayak" ;
     rdfs:comment "The CSV2RDF ontology leverages the CSVW (CSV on the Web) vocabulary to facilitate the transformation of tabular data from CSV files into RDF (Resource Description Framework) format, enabling seamless integration and sharing of data across the Semantic Web.The CSV2RDF ontology extends its capabilities by incorporating data quality information directly within the RDF output. This enhancement allows for the explicit modeling of syntax accuracy, completeness, and other quality metrics alongside the structured data, ensuring that data consumers can access the data for its reliability and suitability for various applications. The CSV2RDF ontology thus provides a comprehensive framework for both data conversion and the representation of associated metadata, bridging the gap between raw CSV data and the rich, interoperable world of linked data."@en ;
@@ -160,7 +160,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=1-col2> a csvw:Cell ;
-    csvtordf:hasValue 59.03154059677189 .
+    csvtordf:hasValue "59.03154059677189"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=1-col3> a csvw:Cell ;
     csvtordf:hasValue "kksaL"^^xsd:string .
@@ -169,10 +169,10 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=10-col1> a csvw:Cell ;
-    csvtordf:hasValue -10.0 .
+    csvtordf:hasValue "-10.0"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-col2> a csvw:Cell ;
-    csvtordf:hasValue 23.460981645927795 .
+    csvtordf:hasValue "23.460981645927795"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-col3> a csvw:Cell ;
     csvtordf:hasValue "tbLeT"^^xsd:string .
@@ -184,7 +184,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 13 .
 
 <http://www.w3.org/ns/csvw#Cell=11-col2> a csvw:Cell ;
-    csvtordf:hasValue 11.51303816316095 .
+    csvtordf:hasValue "11.51303816316095"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=11-col3> a csvw:Cell ;
     csvtordf:hasValue "SeuGG"^^xsd:string .
@@ -196,7 +196,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=12-col2> a csvw:Cell ;
-    csvtordf:hasValue 25.323464512868075 .
+    csvtordf:hasValue "25.323464512868075"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=12-col3> a csvw:Cell ;
     csvtordf:hasValue "XwJLE"^^xsd:string .
@@ -208,7 +208,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 27 .
 
 <http://www.w3.org/ns/csvw#Cell=13-col2> a csvw:Cell ;
-    csvtordf:hasValue 26.02506793760077 .
+    csvtordf:hasValue "26.02506793760077"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=13-col3> a csvw:Cell ;
     csvtordf:hasValue "pMeiV"^^xsd:string .
@@ -220,7 +220,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 20 .
 
 <http://www.w3.org/ns/csvw#Cell=14-col2> a csvw:Cell ;
-    csvtordf:hasValue 15.744053489918375 .
+    csvtordf:hasValue "15.744053489918375"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=14-col3> a csvw:Cell ;
     csvtordf:hasValue "eawSi"^^xsd:string .
@@ -232,7 +232,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=15-col2> a csvw:Cell ;
-    csvtordf:hasValue 27.568705968653312 .
+    csvtordf:hasValue "27.568705968653312"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=15-col3> a csvw:Cell ;
     csvtordf:hasValue "WIWxF"^^xsd:string .
@@ -244,7 +244,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 0 .
 
 <http://www.w3.org/ns/csvw#Cell=16-col2> a csvw:Cell ;
-    csvtordf:hasValue 23.348400837870006 .
+    csvtordf:hasValue "23.348400837870006"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=16-col3> a csvw:Cell ;
     csvtordf:hasValue "wtcEe"^^xsd:string .
@@ -256,7 +256,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=17-col2> a csvw:Cell ;
-    csvtordf:hasValue 12.91295783155011 .
+    csvtordf:hasValue "12.91295783155011"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=17-col3> a csvw:Cell ;
     csvtordf:hasValue "FabLp"^^xsd:string .
@@ -268,7 +268,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 16 .
 
 <http://www.w3.org/ns/csvw#Cell=18-col2> a csvw:Cell ;
-    csvtordf:hasValue 15.914832618876705 .
+    csvtordf:hasValue "15.914832618876705"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=18-col3> a csvw:Cell ;
     csvtordf:hasValue "WkVXK"^^xsd:string .
@@ -280,7 +280,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=19-col2> a csvw:Cell ;
-    csvtordf:hasValue 10.355730424237201 .
+    csvtordf:hasValue "10.355730424237201"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=19-col3> a csvw:Cell ;
     csvtordf:hasValue "RAZQw"^^xsd:string .
@@ -292,7 +292,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 19 .
 
 <http://www.w3.org/ns/csvw#Cell=2-col2> a csvw:Cell ;
-    csvtordf:hasValue 16.590569981427972 .
+    csvtordf:hasValue "16.590569981427972"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=2-col3> a csvw:Cell ;
     csvtordf:hasValue "elRni"^^xsd:string .
@@ -304,7 +304,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 8 .
 
 <http://www.w3.org/ns/csvw#Cell=20-col2> a csvw:Cell ;
-    csvtordf:hasValue 14.772725654386992 .
+    csvtordf:hasValue "14.772725654386992"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=20-col3> a csvw:Cell ;
     csvtordf:hasValue "jdHnO"^^xsd:string .
@@ -316,7 +316,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=21-col2> a csvw:Cell ;
-    csvtordf:hasValue 18.507335667761325 .
+    csvtordf:hasValue "18.507335667761325"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=21-col3> a csvw:Cell ;
     csvtordf:hasValue "sxfQd"^^xsd:string .
@@ -328,7 +328,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 22 .
 
 <http://www.w3.org/ns/csvw#Cell=22-col2> a csvw:Cell ;
-    csvtordf:hasValue 24.78314359303986 .
+    csvtordf:hasValue "24.78314359303986"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=22-col3> a csvw:Cell ;
     csvtordf:hasValue "JMbKF"^^xsd:string .
@@ -340,7 +340,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=23-col2> a csvw:Cell ;
-    csvtordf:hasValue 15.623757543073008 .
+    csvtordf:hasValue "15.623757543073008"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=23-col3> a csvw:Cell ;
     csvtordf:hasValue "gLMRm"^^xsd:string .
@@ -352,7 +352,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=24-col2> a csvw:Cell ;
-    csvtordf:hasValue 10.023566413572418 .
+    csvtordf:hasValue "10.023566413572418"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=24-col3> a csvw:Cell ;
     csvtordf:hasValue "liBEH"^^xsd:string .
@@ -364,7 +364,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=25-col2> a csvw:Cell ;
-    csvtordf:hasValue 0.7459393866320347 .
+    csvtordf:hasValue "0.7459393866320347"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=25-col3> a csvw:Cell ;
     csvtordf:hasValue "gFnAY"^^xsd:string .
@@ -376,7 +376,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=26-col2> a csvw:Cell ;
-    csvtordf:hasValue 19.47010027174108 .
+    csvtordf:hasValue "19.47010027174108"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=26-col3> a csvw:Cell ;
     csvtordf:hasValue "inZOh"^^xsd:string .
@@ -388,7 +388,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=27-col2> a csvw:Cell ;
-    csvtordf:hasValue 17.84864475811802 .
+    csvtordf:hasValue "17.84864475811802"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=27-col3> a csvw:Cell ;
     csvtordf:hasValue "OWeTe"^^xsd:string .
@@ -400,7 +400,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 16 .
 
 <http://www.w3.org/ns/csvw#Cell=28-col2> a csvw:Cell ;
-    csvtordf:hasValue 11.428017048185275 .
+    csvtordf:hasValue "11.428017048185275"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=28-col3> a csvw:Cell ;
     csvtordf:hasValue "Pczpw"^^xsd:string .
@@ -412,7 +412,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 30 .
 
 <http://www.w3.org/ns/csvw#Cell=29-col2> a csvw:Cell ;
-    csvtordf:hasValue 11.447935684432682 .
+    csvtordf:hasValue "11.447935684432682"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=29-col3> a csvw:Cell ;
     csvtordf:hasValue "NgcXb"^^xsd:string .
@@ -424,7 +424,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 11 .
 
 <http://www.w3.org/ns/csvw#Cell=3-col2> a csvw:Cell ;
-    csvtordf:hasValue 24.882263113573394 .
+    csvtordf:hasValue "24.882263113573394"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=3-col3> a csvw:Cell ;
     csvtordf:hasValue "rlTfD"^^xsd:string .
@@ -436,7 +436,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=30-col2> a csvw:Cell ;
-    csvtordf:hasValue 5.102153278346018 .
+    csvtordf:hasValue "5.102153278346018"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=30-col3> a csvw:Cell ;
     csvtordf:hasValue "VPqpX"^^xsd:string .
@@ -448,7 +448,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=4-col2> a csvw:Cell ;
-    csvtordf:hasValue 20.453221541925892 .
+    csvtordf:hasValue "20.453221541925892"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=4-col3> a csvw:Cell ;
     csvtordf:hasValue "ItuNh"^^xsd:string .
@@ -460,7 +460,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 3 .
 
 <http://www.w3.org/ns/csvw#Cell=5-col2> a csvw:Cell ;
-    csvtordf:hasValue 10.771573686800508 .
+    csvtordf:hasValue "10.771573686800508"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=5-col3> a csvw:Cell ;
     csvtordf:hasValue "crpAR"^^xsd:string .
@@ -472,7 +472,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 11 .
 
 <http://www.w3.org/ns/csvw#Cell=6-col2> a csvw:Cell ;
-    csvtordf:hasValue 12.374583304191233 .
+    csvtordf:hasValue "12.374583304191233"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=6-col3> a csvw:Cell ;
     csvtordf:hasValue "ZlyfI"^^xsd:string .
@@ -484,7 +484,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=7-col2> a csvw:Cell ;
-    csvtordf:hasValue 26.641552957249424 .
+    csvtordf:hasValue "26.641552957249424"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=7-col3> a csvw:Cell ;
     csvtordf:hasValue "VSYLC"^^xsd:string .
@@ -496,7 +496,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 28 .
 
 <http://www.w3.org/ns/csvw#Cell=8-col2> a csvw:Cell ;
-    csvtordf:hasValue 9.918672894829882 .
+    csvtordf:hasValue "9.918672894829882"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=8-col3> a csvw:Cell ;
     csvtordf:hasValue "FQIJI"^^xsd:string .
@@ -508,7 +508,7 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=9-col2> a csvw:Cell ;
-    csvtordf:hasValue 13.569053579059997 .
+    csvtordf:hasValue "13.569053579059997"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=9-col3> a csvw:Cell ;
     csvtordf:hasValue "GpSWb"^^xsd:string .
