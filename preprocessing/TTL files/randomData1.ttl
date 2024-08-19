@@ -154,724 +154,364 @@ csvtordf:stdDev a owl:DatatypeProperty ;
     rdfs:range xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=1-col0> a csvw:Cell ;
-    csvtordf:hasValue 135 .
+    csvtordf:hasValue 107 .
 
 <http://www.w3.org/ns/csvw#Cell=1-col1> a csvw:Cell ;
-    csvtordf:hasValue "konrF"^^xsd:string .
+    csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=1-col2> a csvw:Cell ;
-    csvtordf:hasValue 155 .
+    csvtordf:hasValue "59.03154059677189"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=1-col3> a csvw:Cell ;
-    csvtordf:hasValue "70.56470655532914"^^xsd:float .
+    csvtordf:hasValue "kksaL"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=10-col1> a csvw:Cell ;
-    csvtordf:hasValue "CQYEV"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=10-col2> a csvw:Cell ;
-    csvtordf:hasValue 35 .
-
-<http://www.w3.org/ns/csvw#Cell=10-col3> a csvw:Cell ;
-    csvtordf:hasValue "27.561625208579315"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=11-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=11-col1> a csvw:Cell ;
-    csvtordf:hasValue "uJoLz"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=11-col2> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=11-col3> a csvw:Cell ;
-    csvtordf:hasValue "19.93700831917028"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=12-col0> a csvw:Cell ;
-    csvtordf:hasValue 43 .
-
-<http://www.w3.org/ns/csvw#Cell=12-col1> a csvw:Cell ;
-    csvtordf:hasValue "JziGi"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=12-col2> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=12-col3> a csvw:Cell ;
-    csvtordf:hasValue "46.49300440116417"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=13-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=13-col1> a csvw:Cell ;
-    csvtordf:hasValue "qdpwF"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=13-col2> a csvw:Cell ;
-    csvtordf:hasValue 33 .
-
-<http://www.w3.org/ns/csvw#Cell=13-col3> a csvw:Cell ;
-    csvtordf:hasValue "50.48883086785676"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=14-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=14-col1> a csvw:Cell ;
-    csvtordf:hasValue "rCyiF"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=14-col2> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=14-col3> a csvw:Cell ;
-    csvtordf:hasValue "35.7007235282176"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=15-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=15-col1> a csvw:Cell ;
-    csvtordf:hasValue "YwNCX"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=15-col2> a csvw:Cell ;
-    csvtordf:hasValue 49 .
-
-<http://www.w3.org/ns/csvw#Cell=15-col3> a csvw:Cell ;
-    csvtordf:hasValue "35.5003189744723"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=16-col0> a csvw:Cell ;
-    csvtordf:hasValue 49 .
-
-<http://www.w3.org/ns/csvw#Cell=16-col1> a csvw:Cell ;
-    csvtordf:hasValue "QjvZb"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=16-col2> a csvw:Cell ;
-    csvtordf:hasValue 30 .
-
-<http://www.w3.org/ns/csvw#Cell=16-col3> a csvw:Cell ;
-    csvtordf:hasValue "29.14464654720991"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=17-col0> a csvw:Cell ;
-    csvtordf:hasValue 42 .
-
-<http://www.w3.org/ns/csvw#Cell=17-col1> a csvw:Cell ;
-    csvtordf:hasValue "dMQij"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=17-col2> a csvw:Cell ;
-    csvtordf:hasValue 50 .
-
-<http://www.w3.org/ns/csvw#Cell=17-col3> a csvw:Cell ;
-    csvtordf:hasValue "29.193250089409837"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=18-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=18-col1> a csvw:Cell ;
-    csvtordf:hasValue "aFYXj"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=18-col2> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=18-col3> a csvw:Cell ;
-    csvtordf:hasValue "33.179397203494375"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=19-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=19-col1> a csvw:Cell ;
-    csvtordf:hasValue "vawDB"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=19-col2> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=19-col3> a csvw:Cell ;
-    csvtordf:hasValue "27.895443031351547"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=2-col0> a csvw:Cell ;
-    csvtordf:hasValue 138 .
-
-<http://www.w3.org/ns/csvw#Cell=2-col1> a csvw:Cell ;
-    csvtordf:hasValue "HquMn"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=2-col2> a csvw:Cell ;
-    csvtordf:hasValue 146 .
-
-<http://www.w3.org/ns/csvw#Cell=2-col3> a csvw:Cell ;
-    csvtordf:hasValue "128.5255950655123"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=20-col0> a csvw:Cell ;
-    csvtordf:hasValue 43 .
-
-<http://www.w3.org/ns/csvw#Cell=20-col1> a csvw:Cell ;
-    csvtordf:hasValue "XFhZO"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=20-col2> a csvw:Cell ;
-    csvtordf:hasValue 37 .
-
-<http://www.w3.org/ns/csvw#Cell=20-col3> a csvw:Cell ;
-    csvtordf:hasValue "24.423806097251717"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=21-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=21-col1> a csvw:Cell ;
-    csvtordf:hasValue "NwglG"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=21-col2> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=21-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.272930970745584"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=22-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=22-col1> a csvw:Cell ;
-    csvtordf:hasValue "UBhVH"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=22-col2> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=22-col3> a csvw:Cell ;
-    csvtordf:hasValue "35.38416671747312"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=23-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=23-col1> a csvw:Cell ;
-    csvtordf:hasValue "pUcPp"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=23-col2> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=23-col3> a csvw:Cell ;
-    csvtordf:hasValue "41.932392667180665"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=24-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=24-col1> a csvw:Cell ;
-    csvtordf:hasValue "AOOIB"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=24-col2> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=24-col3> a csvw:Cell ;
-    csvtordf:hasValue "41.71316918731555"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=25-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=25-col1> a csvw:Cell ;
-    csvtordf:hasValue "fCeyG"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=25-col2> a csvw:Cell ;
-    csvtordf:hasValue 34 .
-
-<http://www.w3.org/ns/csvw#Cell=25-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.34802611675265"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=26-col0> a csvw:Cell ;
-    csvtordf:hasValue 49 .
-
-<http://www.w3.org/ns/csvw#Cell=26-col1> a csvw:Cell ;
-    csvtordf:hasValue "SnqtW"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=26-col2> a csvw:Cell ;
-    csvtordf:hasValue 36 .
-
-<http://www.w3.org/ns/csvw#Cell=26-col3> a csvw:Cell ;
-    csvtordf:hasValue "35.66523554897516"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=27-col0> a csvw:Cell ;
-    csvtordf:hasValue 50 .
-
-<http://www.w3.org/ns/csvw#Cell=27-col1> a csvw:Cell ;
-    csvtordf:hasValue "KaXea"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=27-col2> a csvw:Cell ;
-    csvtordf:hasValue 54 .
-
-<http://www.w3.org/ns/csvw#Cell=27-col3> a csvw:Cell ;
-    csvtordf:hasValue "42.01211512753342"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=28-col0> a csvw:Cell ;
-    csvtordf:hasValue 43 .
-
-<http://www.w3.org/ns/csvw#Cell=28-col1> a csvw:Cell ;
-    csvtordf:hasValue "ejXmf"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=28-col2> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=28-col3> a csvw:Cell ;
-    csvtordf:hasValue "44.00220065501588"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=29-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=29-col1> a csvw:Cell ;
-    csvtordf:hasValue "BNiIr"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=29-col2> a csvw:Cell ;
-    csvtordf:hasValue 51 .
-
-<http://www.w3.org/ns/csvw#Cell=29-col3> a csvw:Cell ;
-    csvtordf:hasValue "45.91636620404906"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=3-col0> a csvw:Cell ;
-    csvtordf:hasValue 139 .
-
-<http://www.w3.org/ns/csvw#Cell=3-col1> a csvw:Cell ;
-    csvtordf:hasValue "iDimh"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=3-col2> a csvw:Cell ;
-    csvtordf:hasValue 113 .
-
-<http://www.w3.org/ns/csvw#Cell=3-col3> a csvw:Cell ;
-    csvtordf:hasValue "193.01823688924426"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=30-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=30-col1> a csvw:Cell ;
-    csvtordf:hasValue "SUJNE"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=30-col2> a csvw:Cell ;
-    csvtordf:hasValue 43 .
-
-<http://www.w3.org/ns/csvw#Cell=30-col3> a csvw:Cell ;
-    csvtordf:hasValue "45.79724179857859"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=31-col0> a csvw:Cell ;
-    csvtordf:hasValue 42 .
-
-<http://www.w3.org/ns/csvw#Cell=31-col1> a csvw:Cell ;
-    csvtordf:hasValue "hddzd"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=31-col2> a csvw:Cell ;
-    csvtordf:hasValue 34 .
-
-<http://www.w3.org/ns/csvw#Cell=31-col3> a csvw:Cell ;
-    csvtordf:hasValue "22.80078458399943"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=32-col0> a csvw:Cell ;
-    csvtordf:hasValue 51 .
-
-<http://www.w3.org/ns/csvw#Cell=32-col1> a csvw:Cell ;
-    csvtordf:hasValue "KYbat"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=32-col2> a csvw:Cell ;
-    csvtordf:hasValue 37 .
-
-<http://www.w3.org/ns/csvw#Cell=32-col3> a csvw:Cell ;
-    csvtordf:hasValue "37.01166642711264"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=33-col0> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=33-col1> a csvw:Cell ;
-    csvtordf:hasValue "ALCxt"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=33-col2> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=33-col3> a csvw:Cell ;
-    csvtordf:hasValue "37.69957001193156"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=34-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=34-col1> a csvw:Cell ;
-    csvtordf:hasValue "NQfvT"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=34-col2> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=34-col3> a csvw:Cell ;
-    csvtordf:hasValue "33.74525744018065"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=35-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=35-col1> a csvw:Cell ;
-    csvtordf:hasValue "SUpYH"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=35-col2> a csvw:Cell ;
-    csvtordf:hasValue 33 .
-
-<http://www.w3.org/ns/csvw#Cell=35-col3> a csvw:Cell ;
-    csvtordf:hasValue "40.42348207076519"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=36-col0> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=36-col1> a csvw:Cell ;
-    csvtordf:hasValue "ziTEB"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=36-col2> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=36-col3> a csvw:Cell ;
-    csvtordf:hasValue "61.857248494646996"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=37-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=37-col1> a csvw:Cell ;
-    csvtordf:hasValue "HYyqW"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=37-col2> a csvw:Cell ;
-    csvtordf:hasValue 52 .
-
-<http://www.w3.org/ns/csvw#Cell=37-col3> a csvw:Cell ;
-    csvtordf:hasValue "46.96001491057766"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=38-col0> a csvw:Cell ;
-    csvtordf:hasValue 40 .
-
-<http://www.w3.org/ns/csvw#Cell=38-col1> a csvw:Cell ;
-    csvtordf:hasValue "RoxUx"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=38-col2> a csvw:Cell ;
-    csvtordf:hasValue 31 .
-
-<http://www.w3.org/ns/csvw#Cell=38-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.31740260012784"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=39-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=39-col1> a csvw:Cell ;
-    csvtordf:hasValue "dwsdG"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=39-col2> a csvw:Cell ;
-    csvtordf:hasValue 36 .
-
-<http://www.w3.org/ns/csvw#Cell=39-col3> a csvw:Cell ;
-    csvtordf:hasValue "27.87607364371552"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=4-col0> a csvw:Cell ;
-    csvtordf:hasValue 53 .
-
-<http://www.w3.org/ns/csvw#Cell=4-col1> a csvw:Cell ;
-    csvtordf:hasValue "hKqpS"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=4-col2> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=4-col3> a csvw:Cell ;
-    csvtordf:hasValue "42.894780554484576"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=40-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=40-col1> a csvw:Cell ;
-    csvtordf:hasValue "HvZXK"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=40-col2> a csvw:Cell ;
-    csvtordf:hasValue 36 .
-
-<http://www.w3.org/ns/csvw#Cell=40-col3> a csvw:Cell ;
-    csvtordf:hasValue "42.04420061058548"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=41-col0> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=41-col1> a csvw:Cell ;
-    csvtordf:hasValue "ZWnMP"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=41-col2> a csvw:Cell ;
-    csvtordf:hasValue 39 .
-
-<http://www.w3.org/ns/csvw#Cell=41-col3> a csvw:Cell ;
-    csvtordf:hasValue "43.15634426113598"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=42-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=42-col1> a csvw:Cell ;
-    csvtordf:hasValue "VJFXz"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=42-col2> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=42-col3> a csvw:Cell ;
-    csvtordf:hasValue "27.81815648628298"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=43-col0> a csvw:Cell ;
-    csvtordf:hasValue 48 .
-
-<http://www.w3.org/ns/csvw#Cell=43-col1> a csvw:Cell ;
-    csvtordf:hasValue "PLHzD"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=43-col2> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=43-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.97894184981127"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=44-col0> a csvw:Cell ;
-    csvtordf:hasValue 52 .
-
-<http://www.w3.org/ns/csvw#Cell=44-col1> a csvw:Cell ;
-    csvtordf:hasValue "IPKQG"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=44-col2> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=44-col3> a csvw:Cell ;
-    csvtordf:hasValue "44.72302269983742"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=45-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=45-col1> a csvw:Cell ;
-    csvtordf:hasValue "nlDjg"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=45-col2> a csvw:Cell ;
-    csvtordf:hasValue 35 .
-
-<http://www.w3.org/ns/csvw#Cell=45-col3> a csvw:Cell ;
-    csvtordf:hasValue "37.74152402806338"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=46-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=46-col1> a csvw:Cell ;
-    csvtordf:hasValue "tGSSa"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=46-col2> a csvw:Cell ;
-    csvtordf:hasValue 36 .
-
-<http://www.w3.org/ns/csvw#Cell=46-col3> a csvw:Cell ;
-    csvtordf:hasValue "39.35811541118312"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=47-col0> a csvw:Cell ;
-    csvtordf:hasValue 41 .
-
-<http://www.w3.org/ns/csvw#Cell=47-col1> a csvw:Cell ;
-    csvtordf:hasValue "CrXgs"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=47-col2> a csvw:Cell ;
-    csvtordf:hasValue 48 .
-
-<http://www.w3.org/ns/csvw#Cell=47-col3> a csvw:Cell ;
-    csvtordf:hasValue "39.43904246420432"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=48-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=48-col1> a csvw:Cell ;
-    csvtordf:hasValue "hVets"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=48-col2> a csvw:Cell ;
-    csvtordf:hasValue 39 .
-
-<http://www.w3.org/ns/csvw#Cell=48-col3> a csvw:Cell ;
-    csvtordf:hasValue "47.0197230374334"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=49-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=49-col1> a csvw:Cell ;
-    csvtordf:hasValue "KsPDR"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=49-col2> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=49-col3> a csvw:Cell ;
-    csvtordf:hasValue "31.202058568650667"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=5-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=5-col1> a csvw:Cell ;
-    csvtordf:hasValue "YgXiX"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=5-col2> a csvw:Cell ;
-    csvtordf:hasValue 33 .
-
-<http://www.w3.org/ns/csvw#Cell=5-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.3460943977783"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=50-col0> a csvw:Cell ;
-    csvtordf:hasValue 50 .
-
-<http://www.w3.org/ns/csvw#Cell=50-col1> a csvw:Cell ;
-    csvtordf:hasValue "VCIUN"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=50-col2> a csvw:Cell ;
-    csvtordf:hasValue 25 .
-
-<http://www.w3.org/ns/csvw#Cell=50-col3> a csvw:Cell ;
-    csvtordf:hasValue "37.00076973105043"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=51-col0> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=51-col1> a csvw:Cell ;
-    csvtordf:hasValue "xMBEw"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=51-col2> a csvw:Cell ;
-    csvtordf:hasValue 47 .
-
-<http://www.w3.org/ns/csvw#Cell=51-col3> a csvw:Cell ;
-    csvtordf:hasValue "29.64749052895487"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=52-col0> a csvw:Cell ;
-    csvtordf:hasValue 49 .
-
-<http://www.w3.org/ns/csvw#Cell=52-col1> a csvw:Cell ;
-    csvtordf:hasValue "BPDcI"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=52-col2> a csvw:Cell ;
-    csvtordf:hasValue 46 .
-
-<http://www.w3.org/ns/csvw#Cell=52-col3> a csvw:Cell ;
-    csvtordf:hasValue "28.370957411330103"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=53-col0> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=53-col1> a csvw:Cell ;
-    csvtordf:hasValue "TttPC"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=53-col2> a csvw:Cell ;
     csvtordf:hasValue 32 .
 
-<http://www.w3.org/ns/csvw#Cell=53-col3> a csvw:Cell ;
-    csvtordf:hasValue "47.32525689304917"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=10-col1> a csvw:Cell ;
+    csvtordf:hasValue "-10.0"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=54-col0> a csvw:Cell ;
-    csvtordf:hasValue 48 .
+<http://www.w3.org/ns/csvw#Cell=10-col2> a csvw:Cell ;
+    csvtordf:hasValue "23.460981645927795"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=54-col1> a csvw:Cell ;
-    csvtordf:hasValue "XxhHJ"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=10-col3> a csvw:Cell ;
+    csvtordf:hasValue "tbLeT"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=54-col2> a csvw:Cell ;
-    csvtordf:hasValue 47 .
+<http://www.w3.org/ns/csvw#Cell=11-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
 
-<http://www.w3.org/ns/csvw#Cell=54-col3> a csvw:Cell ;
-    csvtordf:hasValue "39.85996712582217"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=11-col1> a csvw:Cell ;
+    csvtordf:hasValue 13 .
 
-<http://www.w3.org/ns/csvw#Cell=55-col0> a csvw:Cell ;
-    csvtordf:hasValue 46 .
+<http://www.w3.org/ns/csvw#Cell=11-col2> a csvw:Cell ;
+    csvtordf:hasValue "11.51303816316095"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=55-col1> a csvw:Cell ;
-    csvtordf:hasValue "WyRgY"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=11-col3> a csvw:Cell ;
+    csvtordf:hasValue "SeuGG"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=55-col2> a csvw:Cell ;
-    csvtordf:hasValue 38 .
+<http://www.w3.org/ns/csvw#Cell=12-col0> a csvw:Cell ;
+    csvtordf:hasValue 32 .
 
-<http://www.w3.org/ns/csvw#Cell=55-col3> a csvw:Cell ;
-    csvtordf:hasValue "46.900784674898375"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=12-col1> a csvw:Cell ;
+    csvtordf:hasValue 7 .
 
-<http://www.w3.org/ns/csvw#Cell=56-col0> a csvw:Cell ;
-    csvtordf:hasValue 43 .
+<http://www.w3.org/ns/csvw#Cell=12-col2> a csvw:Cell ;
+    csvtordf:hasValue "25.323464512868075"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=56-col1> a csvw:Cell ;
-    csvtordf:hasValue "kiOrF"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=12-col3> a csvw:Cell ;
+    csvtordf:hasValue "XwJLE"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=56-col2> a csvw:Cell ;
-    csvtordf:hasValue 38 .
+<http://www.w3.org/ns/csvw#Cell=13-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
 
-<http://www.w3.org/ns/csvw#Cell=56-col3> a csvw:Cell ;
-    csvtordf:hasValue "52.490853392310875"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=13-col1> a csvw:Cell ;
+    csvtordf:hasValue 27 .
 
-<http://www.w3.org/ns/csvw#Cell=57-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
+<http://www.w3.org/ns/csvw#Cell=13-col2> a csvw:Cell ;
+    csvtordf:hasValue "26.02506793760077"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=57-col1> a csvw:Cell ;
-    csvtordf:hasValue "URnIs"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=13-col3> a csvw:Cell ;
+    csvtordf:hasValue "pMeiV"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=57-col2> a csvw:Cell ;
-    csvtordf:hasValue 39 .
+<http://www.w3.org/ns/csvw#Cell=14-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
 
-<http://www.w3.org/ns/csvw#Cell=57-col3> a csvw:Cell ;
-    csvtordf:hasValue "48.551043776744294"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=14-col1> a csvw:Cell ;
+    csvtordf:hasValue 20 .
 
-<http://www.w3.org/ns/csvw#Cell=58-col0> a csvw:Cell ;
-    csvtordf:hasValue 47 .
+<http://www.w3.org/ns/csvw#Cell=14-col2> a csvw:Cell ;
+    csvtordf:hasValue "15.744053489918375"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=58-col1> a csvw:Cell ;
-    csvtordf:hasValue "Zzwgd"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=14-col3> a csvw:Cell ;
+    csvtordf:hasValue "eawSi"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=58-col2> a csvw:Cell ;
-    csvtordf:hasValue 43 .
+<http://www.w3.org/ns/csvw#Cell=15-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
 
-<http://www.w3.org/ns/csvw#Cell=58-col3> a csvw:Cell ;
-    csvtordf:hasValue "36.63450825259778"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=15-col1> a csvw:Cell ;
+    csvtordf:hasValue 7 .
 
-<http://www.w3.org/ns/csvw#Cell=59-col0> a csvw:Cell ;
-    csvtordf:hasValue 53 .
+<http://www.w3.org/ns/csvw#Cell=15-col2> a csvw:Cell ;
+    csvtordf:hasValue "27.568705968653312"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=59-col1> a csvw:Cell ;
-    csvtordf:hasValue "ePrvH"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=15-col3> a csvw:Cell ;
+    csvtordf:hasValue "WIWxF"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=59-col2> a csvw:Cell ;
-    csvtordf:hasValue 39 .
+<http://www.w3.org/ns/csvw#Cell=16-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
 
-<http://www.w3.org/ns/csvw#Cell=59-col3> a csvw:Cell ;
-    csvtordf:hasValue "45.83113361701673"^^xsd:float .
+<http://www.w3.org/ns/csvw#Cell=16-col1> a csvw:Cell ;
+    csvtordf:hasValue 0 .
 
-<http://www.w3.org/ns/csvw#Cell=6-col0> a csvw:Cell ;
-    csvtordf:hasValue 45 .
+<http://www.w3.org/ns/csvw#Cell=16-col2> a csvw:Cell ;
+    csvtordf:hasValue "23.348400837870006"^^xsd:float .
 
-<http://www.w3.org/ns/csvw#Cell=6-col1> a csvw:Cell ;
-    csvtordf:hasValue "vjtmk"^^xsd:string .
+<http://www.w3.org/ns/csvw#Cell=16-col3> a csvw:Cell ;
+    csvtordf:hasValue "wtcEe"^^xsd:string .
 
-<http://www.w3.org/ns/csvw#Cell=6-col2> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=6-col3> a csvw:Cell ;
-    csvtordf:hasValue "39.91119177968617"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=60-col0> a csvw:Cell ;
-    csvtordf:hasValue 44 .
-
-<http://www.w3.org/ns/csvw#Cell=60-col1> a csvw:Cell ;
-    csvtordf:hasValue "DEBGc"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=60-col2> a csvw:Cell ;
-    csvtordf:hasValue 45 .
-
-<http://www.w3.org/ns/csvw#Cell=60-col3> a csvw:Cell ;
-    csvtordf:hasValue "41.470376522385656"^^xsd:float .
-
-<http://www.w3.org/ns/csvw#Cell=7-col0> a csvw:Cell ;
-    csvtordf:hasValue 51 .
-
-<http://www.w3.org/ns/csvw#Cell=7-col1> a csvw:Cell ;
-    csvtordf:hasValue "wicJI"^^xsd:string .
-
-<http://www.w3.org/ns/csvw#Cell=7-col2> a csvw:Cell ;
+<http://www.w3.org/ns/csvw#Cell=17-col0> a csvw:Cell ;
     csvtordf:hasValue 34 .
 
+<http://www.w3.org/ns/csvw#Cell=17-col1> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=17-col2> a csvw:Cell ;
+    csvtordf:hasValue "12.91295783155011"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=17-col3> a csvw:Cell ;
+    csvtordf:hasValue "FabLp"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=18-col0> a csvw:Cell ;
+    csvtordf:hasValue 37 .
+
+<http://www.w3.org/ns/csvw#Cell=18-col1> a csvw:Cell ;
+    csvtordf:hasValue 16 .
+
+<http://www.w3.org/ns/csvw#Cell=18-col2> a csvw:Cell ;
+    csvtordf:hasValue "15.914832618876705"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=18-col3> a csvw:Cell ;
+    csvtordf:hasValue "WkVXK"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=19-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
+
+<http://www.w3.org/ns/csvw#Cell=19-col1> a csvw:Cell ;
+    csvtordf:hasValue 7 .
+
+<http://www.w3.org/ns/csvw#Cell=19-col2> a csvw:Cell ;
+    csvtordf:hasValue "10.355730424237201"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=19-col3> a csvw:Cell ;
+    csvtordf:hasValue "RAZQw"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=2-col0> a csvw:Cell ;
+    csvtordf:hasValue 32 .
+
+<http://www.w3.org/ns/csvw#Cell=2-col1> a csvw:Cell ;
+    csvtordf:hasValue 19 .
+
+<http://www.w3.org/ns/csvw#Cell=2-col2> a csvw:Cell ;
+    csvtordf:hasValue "16.590569981427972"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=2-col3> a csvw:Cell ;
+    csvtordf:hasValue "elRni"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=20-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=20-col1> a csvw:Cell ;
+    csvtordf:hasValue 8 .
+
+<http://www.w3.org/ns/csvw#Cell=20-col2> a csvw:Cell ;
+    csvtordf:hasValue "14.772725654386992"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=20-col3> a csvw:Cell ;
+    csvtordf:hasValue "jdHnO"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=21-col0> a csvw:Cell ;
+    csvtordf:hasValue 34 .
+
+<http://www.w3.org/ns/csvw#Cell=21-col1> a csvw:Cell ;
+    csvtordf:hasValue 12 .
+
+<http://www.w3.org/ns/csvw#Cell=21-col2> a csvw:Cell ;
+    csvtordf:hasValue "18.507335667761325"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=21-col3> a csvw:Cell ;
+    csvtordf:hasValue "sxfQd"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=22-col0> a csvw:Cell ;
+    csvtordf:hasValue 34 .
+
+<http://www.w3.org/ns/csvw#Cell=22-col1> a csvw:Cell ;
+    csvtordf:hasValue 22 .
+
+<http://www.w3.org/ns/csvw#Cell=22-col2> a csvw:Cell ;
+    csvtordf:hasValue "24.78314359303986"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=22-col3> a csvw:Cell ;
+    csvtordf:hasValue "JMbKF"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=23-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=23-col1> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=23-col2> a csvw:Cell ;
+    csvtordf:hasValue "15.623757543073008"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=23-col3> a csvw:Cell ;
+    csvtordf:hasValue "gLMRm"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=24-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
+
+<http://www.w3.org/ns/csvw#Cell=24-col1> a csvw:Cell ;
+    csvtordf:hasValue 14 .
+
+<http://www.w3.org/ns/csvw#Cell=24-col2> a csvw:Cell ;
+    csvtordf:hasValue "10.023566413572418"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=24-col3> a csvw:Cell ;
+    csvtordf:hasValue "liBEH"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=25-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=25-col1> a csvw:Cell ;
+    csvtordf:hasValue 12 .
+
+<http://www.w3.org/ns/csvw#Cell=25-col2> a csvw:Cell ;
+    csvtordf:hasValue "0.7459393866320347"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=25-col3> a csvw:Cell ;
+    csvtordf:hasValue "gFnAY"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=26-col0> a csvw:Cell ;
+    csvtordf:hasValue 32 .
+
+<http://www.w3.org/ns/csvw#Cell=26-col1> a csvw:Cell ;
+    csvtordf:hasValue 14 .
+
+<http://www.w3.org/ns/csvw#Cell=26-col2> a csvw:Cell ;
+    csvtordf:hasValue "19.47010027174108"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=26-col3> a csvw:Cell ;
+    csvtordf:hasValue "inZOh"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=27-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
+
+<http://www.w3.org/ns/csvw#Cell=27-col1> a csvw:Cell ;
+    csvtordf:hasValue 14 .
+
+<http://www.w3.org/ns/csvw#Cell=27-col2> a csvw:Cell ;
+    csvtordf:hasValue "17.84864475811802"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=27-col3> a csvw:Cell ;
+    csvtordf:hasValue "OWeTe"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=28-col0> a csvw:Cell ;
+    csvtordf:hasValue 31 .
+
+<http://www.w3.org/ns/csvw#Cell=28-col1> a csvw:Cell ;
+    csvtordf:hasValue 16 .
+
+<http://www.w3.org/ns/csvw#Cell=28-col2> a csvw:Cell ;
+    csvtordf:hasValue "11.428017048185275"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=28-col3> a csvw:Cell ;
+    csvtordf:hasValue "Pczpw"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=29-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
+
+<http://www.w3.org/ns/csvw#Cell=29-col1> a csvw:Cell ;
+    csvtordf:hasValue 30 .
+
+<http://www.w3.org/ns/csvw#Cell=29-col2> a csvw:Cell ;
+    csvtordf:hasValue "11.447935684432682"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=29-col3> a csvw:Cell ;
+    csvtordf:hasValue "NgcXb"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=3-col0> a csvw:Cell ;
+    csvtordf:hasValue 32 .
+
+<http://www.w3.org/ns/csvw#Cell=3-col1> a csvw:Cell ;
+    csvtordf:hasValue 11 .
+
+<http://www.w3.org/ns/csvw#Cell=3-col2> a csvw:Cell ;
+    csvtordf:hasValue "24.882263113573394"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=3-col3> a csvw:Cell ;
+    csvtordf:hasValue "rlTfD"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=30-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=30-col1> a csvw:Cell ;
+    csvtordf:hasValue 12 .
+
+<http://www.w3.org/ns/csvw#Cell=30-col2> a csvw:Cell ;
+    csvtordf:hasValue "5.102153278346018"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=30-col3> a csvw:Cell ;
+    csvtordf:hasValue "VPqpX"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=4-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=4-col1> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=4-col2> a csvw:Cell ;
+    csvtordf:hasValue "20.453221541925892"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=4-col3> a csvw:Cell ;
+    csvtordf:hasValue "ItuNh"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=5-col0> a csvw:Cell ;
+    csvtordf:hasValue 35 .
+
+<http://www.w3.org/ns/csvw#Cell=5-col1> a csvw:Cell ;
+    csvtordf:hasValue 3 .
+
+<http://www.w3.org/ns/csvw#Cell=5-col2> a csvw:Cell ;
+    csvtordf:hasValue "10.771573686800508"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=5-col3> a csvw:Cell ;
+    csvtordf:hasValue "crpAR"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=6-col0> a csvw:Cell ;
+    csvtordf:hasValue 34 .
+
+<http://www.w3.org/ns/csvw#Cell=6-col1> a csvw:Cell ;
+    csvtordf:hasValue 11 .
+
+<http://www.w3.org/ns/csvw#Cell=6-col2> a csvw:Cell ;
+    csvtordf:hasValue "12.374583304191233"^^xsd:float .
+
+<http://www.w3.org/ns/csvw#Cell=6-col3> a csvw:Cell ;
+    csvtordf:hasValue "ZlyfI"^^xsd:string .
+
+<http://www.w3.org/ns/csvw#Cell=7-col0> a csvw:Cell ;
+    csvtordf:hasValue 33 .
+
+<http://www.w3.org/ns/csvw#Cell=7-col1> a csvw:Cell ;
+    csvtordf:hasValue 15 .
+
+<http://www.w3.org/ns/csvw#Cell=7-col2> a csvw:Cell ;
+    csvtordf:hasValue "26.641552957249424"^^xsd:float .
+
 <http://www.w3.org/ns/csvw#Cell=7-col3> a csvw:Cell ;
-    csvtordf:hasValue "46.81109164586372"^^xsd:float .
+    csvtordf:hasValue "VSYLC"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-col0> a csvw:Cell ;
-    csvtordf:hasValue 44 .
+    csvtordf:hasValue 31 .
 
 <http://www.w3.org/ns/csvw#Cell=8-col1> a csvw:Cell ;
-    csvtordf:hasValue "gJMcs"^^xsd:string .
+    csvtordf:hasValue 28 .
 
 <http://www.w3.org/ns/csvw#Cell=8-col2> a csvw:Cell ;
-    csvtordf:hasValue 38 .
+    csvtordf:hasValue "9.918672894829882"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=8-col3> a csvw:Cell ;
-    csvtordf:hasValue "38.95250844072964"^^xsd:float .
+    csvtordf:hasValue "FQIJI"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-col0> a csvw:Cell ;
-    csvtordf:hasValue 50 .
+    csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=9-col1> a csvw:Cell ;
-    csvtordf:hasValue "xXsOW"^^xsd:string .
+    csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=9-col2> a csvw:Cell ;
-    csvtordf:hasValue 44 .
+    csvtordf:hasValue "13.569053579059997"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=9-col3> a csvw:Cell ;
-    csvtordf:hasValue "22.98367847277707"^^xsd:float .
+    csvtordf:hasValue "GpSWb"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Row=1> a csvw:Row ;
     csvw:rownum "1"^^xsd:int ;
@@ -1041,141 +681,8 @@ csvtordf:stdDev a owl:DatatypeProperty ;
         <http://www.w3.org/ns/csvw#Column#col2>,
         <http://www.w3.org/ns/csvw#Column#col3> .
 
-<http://www.w3.org/ns/csvw#Row=31> a csvw:Row ;
-    csvw:rownum "31"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=32> a csvw:Row ;
-    csvw:rownum "32"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=33> a csvw:Row ;
-    csvw:rownum "33"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=34> a csvw:Row ;
-    csvw:rownum "34"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=35> a csvw:Row ;
-    csvw:rownum "35"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=36> a csvw:Row ;
-    csvw:rownum "36"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=37> a csvw:Row ;
-    csvw:rownum "37"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=38> a csvw:Row ;
-    csvw:rownum "38"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=39> a csvw:Row ;
-    csvw:rownum "39"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
 <http://www.w3.org/ns/csvw#Row=4> a csvw:Row ;
     csvw:rownum "4"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=40> a csvw:Row ;
-    csvw:rownum "40"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=41> a csvw:Row ;
-    csvw:rownum "41"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=42> a csvw:Row ;
-    csvw:rownum "42"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=43> a csvw:Row ;
-    csvw:rownum "43"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=44> a csvw:Row ;
-    csvw:rownum "44"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=45> a csvw:Row ;
-    csvw:rownum "45"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=46> a csvw:Row ;
-    csvw:rownum "46"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=47> a csvw:Row ;
-    csvw:rownum "47"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=48> a csvw:Row ;
-    csvw:rownum "48"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=49> a csvw:Row ;
-    csvw:rownum "49"^^xsd:int ;
     csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
         <http://www.w3.org/ns/csvw#Column#col1>,
         <http://www.w3.org/ns/csvw#Column#col2>,
@@ -1188,85 +695,8 @@ csvtordf:stdDev a owl:DatatypeProperty ;
         <http://www.w3.org/ns/csvw#Column#col2>,
         <http://www.w3.org/ns/csvw#Column#col3> .
 
-<http://www.w3.org/ns/csvw#Row=50> a csvw:Row ;
-    csvw:rownum "50"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=51> a csvw:Row ;
-    csvw:rownum "51"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=52> a csvw:Row ;
-    csvw:rownum "52"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=53> a csvw:Row ;
-    csvw:rownum "53"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=54> a csvw:Row ;
-    csvw:rownum "54"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=55> a csvw:Row ;
-    csvw:rownum "55"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=56> a csvw:Row ;
-    csvw:rownum "56"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=57> a csvw:Row ;
-    csvw:rownum "57"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=58> a csvw:Row ;
-    csvw:rownum "58"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=59> a csvw:Row ;
-    csvw:rownum "59"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
 <http://www.w3.org/ns/csvw#Row=6> a csvw:Row ;
     csvw:rownum "6"^^xsd:int ;
-    csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
-        <http://www.w3.org/ns/csvw#Column#col1>,
-        <http://www.w3.org/ns/csvw#Column#col2>,
-        <http://www.w3.org/ns/csvw#Column#col3> .
-
-<http://www.w3.org/ns/csvw#Row=60> a csvw:Row ;
-    csvw:rownum "60"^^xsd:int ;
     csvtordf:describes <http://www.w3.org/ns/csvw#Column#col0>,
         <http://www.w3.org/ns/csvw#Column#col1>,
         <http://www.w3.org/ns/csvw#Column#col2>,
@@ -1385,39 +815,9 @@ csvw:Table a owl:Class ;
         <http://www.w3.org/ns/csvw#Row=29>,
         <http://www.w3.org/ns/csvw#Row=3>,
         <http://www.w3.org/ns/csvw#Row=30>,
-        <http://www.w3.org/ns/csvw#Row=31>,
-        <http://www.w3.org/ns/csvw#Row=32>,
-        <http://www.w3.org/ns/csvw#Row=33>,
-        <http://www.w3.org/ns/csvw#Row=34>,
-        <http://www.w3.org/ns/csvw#Row=35>,
-        <http://www.w3.org/ns/csvw#Row=36>,
-        <http://www.w3.org/ns/csvw#Row=37>,
-        <http://www.w3.org/ns/csvw#Row=38>,
-        <http://www.w3.org/ns/csvw#Row=39>,
         <http://www.w3.org/ns/csvw#Row=4>,
-        <http://www.w3.org/ns/csvw#Row=40>,
-        <http://www.w3.org/ns/csvw#Row=41>,
-        <http://www.w3.org/ns/csvw#Row=42>,
-        <http://www.w3.org/ns/csvw#Row=43>,
-        <http://www.w3.org/ns/csvw#Row=44>,
-        <http://www.w3.org/ns/csvw#Row=45>,
-        <http://www.w3.org/ns/csvw#Row=46>,
-        <http://www.w3.org/ns/csvw#Row=47>,
-        <http://www.w3.org/ns/csvw#Row=48>,
-        <http://www.w3.org/ns/csvw#Row=49>,
         <http://www.w3.org/ns/csvw#Row=5>,
-        <http://www.w3.org/ns/csvw#Row=50>,
-        <http://www.w3.org/ns/csvw#Row=51>,
-        <http://www.w3.org/ns/csvw#Row=52>,
-        <http://www.w3.org/ns/csvw#Row=53>,
-        <http://www.w3.org/ns/csvw#Row=54>,
-        <http://www.w3.org/ns/csvw#Row=55>,
-        <http://www.w3.org/ns/csvw#Row=56>,
-        <http://www.w3.org/ns/csvw#Row=57>,
-        <http://www.w3.org/ns/csvw#Row=58>,
-        <http://www.w3.org/ns/csvw#Row=59>,
         <http://www.w3.org/ns/csvw#Row=6>,
-        <http://www.w3.org/ns/csvw#Row=60>,
         <http://www.w3.org/ns/csvw#Row=7>,
         <http://www.w3.org/ns/csvw#Row=8>,
         <http://www.w3.org/ns/csvw#Row=9> .
@@ -1434,8 +834,8 @@ csvw:Column a owl:Class ;
 
 <http://www.w3.org/ns/csvw#Column#col0> a csvw:Column ;
     csvw:datatype xsd:integer ;
-    csvtordf:Q1 "44.75"^^xsd:float ;
-    csvtordf:Q3 "48.0"^^xsd:float ;
+    csvtordf:Q1 "33.0"^^xsd:float ;
+    csvtordf:Q3 "34.75"^^xsd:float ;
     csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col0>,
         <http://www.w3.org/ns/csvw#Cell=10-col0>,
         <http://www.w3.org/ns/csvw#Cell=11-col0>,
@@ -1460,45 +860,15 @@ csvw:Column a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=29-col0>,
         <http://www.w3.org/ns/csvw#Cell=3-col0>,
         <http://www.w3.org/ns/csvw#Cell=30-col0>,
-        <http://www.w3.org/ns/csvw#Cell=31-col0>,
-        <http://www.w3.org/ns/csvw#Cell=32-col0>,
-        <http://www.w3.org/ns/csvw#Cell=33-col0>,
-        <http://www.w3.org/ns/csvw#Cell=34-col0>,
-        <http://www.w3.org/ns/csvw#Cell=35-col0>,
-        <http://www.w3.org/ns/csvw#Cell=36-col0>,
-        <http://www.w3.org/ns/csvw#Cell=37-col0>,
-        <http://www.w3.org/ns/csvw#Cell=38-col0>,
-        <http://www.w3.org/ns/csvw#Cell=39-col0>,
         <http://www.w3.org/ns/csvw#Cell=4-col0>,
-        <http://www.w3.org/ns/csvw#Cell=40-col0>,
-        <http://www.w3.org/ns/csvw#Cell=41-col0>,
-        <http://www.w3.org/ns/csvw#Cell=42-col0>,
-        <http://www.w3.org/ns/csvw#Cell=43-col0>,
-        <http://www.w3.org/ns/csvw#Cell=44-col0>,
-        <http://www.w3.org/ns/csvw#Cell=45-col0>,
-        <http://www.w3.org/ns/csvw#Cell=46-col0>,
-        <http://www.w3.org/ns/csvw#Cell=47-col0>,
-        <http://www.w3.org/ns/csvw#Cell=48-col0>,
-        <http://www.w3.org/ns/csvw#Cell=49-col0>,
         <http://www.w3.org/ns/csvw#Cell=5-col0>,
-        <http://www.w3.org/ns/csvw#Cell=50-col0>,
-        <http://www.w3.org/ns/csvw#Cell=51-col0>,
-        <http://www.w3.org/ns/csvw#Cell=52-col0>,
-        <http://www.w3.org/ns/csvw#Cell=53-col0>,
-        <http://www.w3.org/ns/csvw#Cell=54-col0>,
-        <http://www.w3.org/ns/csvw#Cell=55-col0>,
-        <http://www.w3.org/ns/csvw#Cell=56-col0>,
-        <http://www.w3.org/ns/csvw#Cell=57-col0>,
-        <http://www.w3.org/ns/csvw#Cell=58-col0>,
-        <http://www.w3.org/ns/csvw#Cell=59-col0>,
         <http://www.w3.org/ns/csvw#Cell=6-col0>,
-        <http://www.w3.org/ns/csvw#Cell=60-col0>,
         <http://www.w3.org/ns/csvw#Cell=7-col0>,
         <http://www.w3.org/ns/csvw#Cell=8-col0>,
         <http://www.w3.org/ns/csvw#Cell=9-col0> .
 
 <http://www.w3.org/ns/csvw#Column#col1> a csvw:Column ;
-    csvw:datatype xsd:string ;
+    csvw:datatype xsd:integer ;
     csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col1>,
         <http://www.w3.org/ns/csvw#Cell=10-col1>,
         <http://www.w3.org/ns/csvw#Cell=11-col1>,
@@ -1523,48 +893,19 @@ csvw:Column a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=29-col1>,
         <http://www.w3.org/ns/csvw#Cell=3-col1>,
         <http://www.w3.org/ns/csvw#Cell=30-col1>,
-        <http://www.w3.org/ns/csvw#Cell=31-col1>,
-        <http://www.w3.org/ns/csvw#Cell=32-col1>,
-        <http://www.w3.org/ns/csvw#Cell=33-col1>,
-        <http://www.w3.org/ns/csvw#Cell=34-col1>,
-        <http://www.w3.org/ns/csvw#Cell=35-col1>,
-        <http://www.w3.org/ns/csvw#Cell=36-col1>,
-        <http://www.w3.org/ns/csvw#Cell=37-col1>,
-        <http://www.w3.org/ns/csvw#Cell=38-col1>,
-        <http://www.w3.org/ns/csvw#Cell=39-col1>,
         <http://www.w3.org/ns/csvw#Cell=4-col1>,
-        <http://www.w3.org/ns/csvw#Cell=40-col1>,
-        <http://www.w3.org/ns/csvw#Cell=41-col1>,
-        <http://www.w3.org/ns/csvw#Cell=42-col1>,
-        <http://www.w3.org/ns/csvw#Cell=43-col1>,
-        <http://www.w3.org/ns/csvw#Cell=44-col1>,
-        <http://www.w3.org/ns/csvw#Cell=45-col1>,
-        <http://www.w3.org/ns/csvw#Cell=46-col1>,
-        <http://www.w3.org/ns/csvw#Cell=47-col1>,
-        <http://www.w3.org/ns/csvw#Cell=48-col1>,
-        <http://www.w3.org/ns/csvw#Cell=49-col1>,
         <http://www.w3.org/ns/csvw#Cell=5-col1>,
-        <http://www.w3.org/ns/csvw#Cell=50-col1>,
-        <http://www.w3.org/ns/csvw#Cell=51-col1>,
-        <http://www.w3.org/ns/csvw#Cell=52-col1>,
-        <http://www.w3.org/ns/csvw#Cell=53-col1>,
-        <http://www.w3.org/ns/csvw#Cell=54-col1>,
-        <http://www.w3.org/ns/csvw#Cell=55-col1>,
-        <http://www.w3.org/ns/csvw#Cell=56-col1>,
-        <http://www.w3.org/ns/csvw#Cell=57-col1>,
-        <http://www.w3.org/ns/csvw#Cell=58-col1>,
-        <http://www.w3.org/ns/csvw#Cell=59-col1>,
         <http://www.w3.org/ns/csvw#Cell=6-col1>,
-        <http://www.w3.org/ns/csvw#Cell=60-col1>,
         <http://www.w3.org/ns/csvw#Cell=7-col1>,
         <http://www.w3.org/ns/csvw#Cell=8-col1>,
         <http://www.w3.org/ns/csvw#Cell=9-col1> ;
-    csvtordf:language "de" .
+    csvtordf:mean "14.9"^^xsd:float ;
+    csvtordf:stdDev "9.82"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Column#col2> a csvw:Column ;
-    csvw:datatype xsd:integer ;
-    csvtordf:Q1 "36.0"^^xsd:float ;
-    csvtordf:Q3 "46.0"^^xsd:float ;
+    csvw:datatype xsd:float ;
+    csvtordf:Q1 "11.464211304114748"^^xsd:float ;
+    csvtordf:Q3 "23.432836443913345"^^xsd:float ;
     csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col2>,
         <http://www.w3.org/ns/csvw#Cell=10-col2>,
         <http://www.w3.org/ns/csvw#Cell=11-col2>,
@@ -1589,47 +930,15 @@ csvw:Column a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=29-col2>,
         <http://www.w3.org/ns/csvw#Cell=3-col2>,
         <http://www.w3.org/ns/csvw#Cell=30-col2>,
-        <http://www.w3.org/ns/csvw#Cell=31-col2>,
-        <http://www.w3.org/ns/csvw#Cell=32-col2>,
-        <http://www.w3.org/ns/csvw#Cell=33-col2>,
-        <http://www.w3.org/ns/csvw#Cell=34-col2>,
-        <http://www.w3.org/ns/csvw#Cell=35-col2>,
-        <http://www.w3.org/ns/csvw#Cell=36-col2>,
-        <http://www.w3.org/ns/csvw#Cell=37-col2>,
-        <http://www.w3.org/ns/csvw#Cell=38-col2>,
-        <http://www.w3.org/ns/csvw#Cell=39-col2>,
         <http://www.w3.org/ns/csvw#Cell=4-col2>,
-        <http://www.w3.org/ns/csvw#Cell=40-col2>,
-        <http://www.w3.org/ns/csvw#Cell=41-col2>,
-        <http://www.w3.org/ns/csvw#Cell=42-col2>,
-        <http://www.w3.org/ns/csvw#Cell=43-col2>,
-        <http://www.w3.org/ns/csvw#Cell=44-col2>,
-        <http://www.w3.org/ns/csvw#Cell=45-col2>,
-        <http://www.w3.org/ns/csvw#Cell=46-col2>,
-        <http://www.w3.org/ns/csvw#Cell=47-col2>,
-        <http://www.w3.org/ns/csvw#Cell=48-col2>,
-        <http://www.w3.org/ns/csvw#Cell=49-col2>,
         <http://www.w3.org/ns/csvw#Cell=5-col2>,
-        <http://www.w3.org/ns/csvw#Cell=50-col2>,
-        <http://www.w3.org/ns/csvw#Cell=51-col2>,
-        <http://www.w3.org/ns/csvw#Cell=52-col2>,
-        <http://www.w3.org/ns/csvw#Cell=53-col2>,
-        <http://www.w3.org/ns/csvw#Cell=54-col2>,
-        <http://www.w3.org/ns/csvw#Cell=55-col2>,
-        <http://www.w3.org/ns/csvw#Cell=56-col2>,
-        <http://www.w3.org/ns/csvw#Cell=57-col2>,
-        <http://www.w3.org/ns/csvw#Cell=58-col2>,
-        <http://www.w3.org/ns/csvw#Cell=59-col2>,
         <http://www.w3.org/ns/csvw#Cell=6-col2>,
-        <http://www.w3.org/ns/csvw#Cell=60-col2>,
         <http://www.w3.org/ns/csvw#Cell=7-col2>,
         <http://www.w3.org/ns/csvw#Cell=8-col2>,
         <http://www.w3.org/ns/csvw#Cell=9-col2> .
 
 <http://www.w3.org/ns/csvw#Column#col3> a csvw:Column ;
-    csvw:datatype xsd:float ;
-    csvtordf:Q1 "34.97443939815"^^xsd:float ;
-    csvtordf:Q3 "45.80571475318813"^^xsd:float ;
+    csvw:datatype xsd:string ;
     csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col3>,
         <http://www.w3.org/ns/csvw#Cell=10-col3>,
         <http://www.w3.org/ns/csvw#Cell=11-col3>,
@@ -1654,42 +963,13 @@ csvw:Column a owl:Class ;
         <http://www.w3.org/ns/csvw#Cell=29-col3>,
         <http://www.w3.org/ns/csvw#Cell=3-col3>,
         <http://www.w3.org/ns/csvw#Cell=30-col3>,
-        <http://www.w3.org/ns/csvw#Cell=31-col3>,
-        <http://www.w3.org/ns/csvw#Cell=32-col3>,
-        <http://www.w3.org/ns/csvw#Cell=33-col3>,
-        <http://www.w3.org/ns/csvw#Cell=34-col3>,
-        <http://www.w3.org/ns/csvw#Cell=35-col3>,
-        <http://www.w3.org/ns/csvw#Cell=36-col3>,
-        <http://www.w3.org/ns/csvw#Cell=37-col3>,
-        <http://www.w3.org/ns/csvw#Cell=38-col3>,
-        <http://www.w3.org/ns/csvw#Cell=39-col3>,
         <http://www.w3.org/ns/csvw#Cell=4-col3>,
-        <http://www.w3.org/ns/csvw#Cell=40-col3>,
-        <http://www.w3.org/ns/csvw#Cell=41-col3>,
-        <http://www.w3.org/ns/csvw#Cell=42-col3>,
-        <http://www.w3.org/ns/csvw#Cell=43-col3>,
-        <http://www.w3.org/ns/csvw#Cell=44-col3>,
-        <http://www.w3.org/ns/csvw#Cell=45-col3>,
-        <http://www.w3.org/ns/csvw#Cell=46-col3>,
-        <http://www.w3.org/ns/csvw#Cell=47-col3>,
-        <http://www.w3.org/ns/csvw#Cell=48-col3>,
-        <http://www.w3.org/ns/csvw#Cell=49-col3>,
         <http://www.w3.org/ns/csvw#Cell=5-col3>,
-        <http://www.w3.org/ns/csvw#Cell=50-col3>,
-        <http://www.w3.org/ns/csvw#Cell=51-col3>,
-        <http://www.w3.org/ns/csvw#Cell=52-col3>,
-        <http://www.w3.org/ns/csvw#Cell=53-col3>,
-        <http://www.w3.org/ns/csvw#Cell=54-col3>,
-        <http://www.w3.org/ns/csvw#Cell=55-col3>,
-        <http://www.w3.org/ns/csvw#Cell=56-col3>,
-        <http://www.w3.org/ns/csvw#Cell=57-col3>,
-        <http://www.w3.org/ns/csvw#Cell=58-col3>,
-        <http://www.w3.org/ns/csvw#Cell=59-col3>,
         <http://www.w3.org/ns/csvw#Cell=6-col3>,
-        <http://www.w3.org/ns/csvw#Cell=60-col3>,
         <http://www.w3.org/ns/csvw#Cell=7-col3>,
         <http://www.w3.org/ns/csvw#Cell=8-col3>,
-        <http://www.w3.org/ns/csvw#Cell=9-col3> .
+        <http://www.w3.org/ns/csvw#Cell=9-col3> ;
+    csvtordf:language "de" .
 
 csvw:Row a owl:Class ;
     rdfs:comment "A Row represents a horizontal arrangement of cells within a Table."@en ;
