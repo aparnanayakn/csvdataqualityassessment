@@ -27,7 +27,8 @@ public class  Main{
 	
 	public static void main(String[] args) {
 		Model model = ModelFactory.createDefaultModel();
-		model.read( "/home/d19125691/Experiments/Experiments/csv2rdf/csv2rdfworking/preprocessing/TTL files/randomData2.ttl" );
+		model.read( "/home/d19125691/Experiments/Experiments/csv2rdf/csv2rdfworking/preprocessing/TTL files/randomData4.ttl" );
+		
 		
 		Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL( "rules.n3" ));
 		//((GenericRuleReasoner) reasoner).setOWLTranslation(true);               // not needed in RDFS case

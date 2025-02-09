@@ -6,26 +6,30 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix math: <http://www.w3.org/2000/10/swap/math#> .
 
-[R1: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvtordf:describes ?col) 
+[R1: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvw:describes ?col) 
 (?cell rdf:type csvw:Cell) (?cell csvtordf:hasValue ?value) (?col csvtordf:contains ?cell) 
-(?col csvw:datatype ?columndatatype) notDType(?value, ?columndatatype) -> 
-(?cell csvtordf:constraintType csvtordf:SyntaxAccuracy)  (?cell csvtordf:expectedDT ?columndatatype) 
-(?cell csvtordf:foundDT ?value)]
+(?col csvw:datatype ?columndatatype) notDType(?value, ?columndatatype) -> (?cnode rdf:type csvtordf:DataQuality) (?col csvtordf:hasConstraint ?cnode)
+(?cnode csvtordf:constraintType csvtordf:SyntaxAccuracy)  (?cnode csvtordf:expectedDT ?columndatatype) 
+(?cnode csvtordf:foundDT ?value)]
 
-[R2: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvtordf:describes ?col) 
+[R2: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvw:describes ?col) 
 (?cell rdf:type csvw:Cell) (?cell csvtordf:hasValue ?value) (?col csvtordf:contains ?cell) 
 (?col csvtordf:mean ?meanvalue) (?col csvtordf:stdDev ?stddevvalue) product(?stddevvalue, 3, ?threshold)
-difference(?meanvalue ?threshold ?LL) lessThan(?value ?LL) -> (?cell csvtordf:constraintType csvtordf:Outliers) ]
+difference(?meanvalue ?threshold ?LL) lessThan(?value ?LL) -> (?cnode rdf:type csvtordf:DataQuality) (?col csvtordf:hasConstraint ?cnode)
+(?cnode csvtordf:constraintType csvtordf:Outliers) (?cnode csvtordf:constraintElement ?value)]
 
-[R3: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvtordf:describes ?col) 
+[R3: (?row rdf:type csvw:Row) (?col rdf:type csvw:Column) (?row csvw:describes ?col) 
 (?cell rdf:type csvw:Cell) (?cell csvtordf:hasValue ?value) (?col csvtordf:contains ?cell) 
 (?col csvtordf:mean ?meanvalue) (?col csvtordf:stdDev ?stddevvalue) product(?stddevvalue, 3, ?threshold)
-sum(?meanvalue ?threshold ?UL) greaterThan(?value ?UL) -> (?cell csvtordf:constraintType csvtordf:Outliers)]
+sum(?meanvalue ?threshold ?UL) greaterThan(?value ?UL) -> (?cnode rdf:type csvtordf:DataQuality) (?col csvtordf:hasConstraint ?cnode)
+(?cnode csvtordf:constraintType csvtordf:Outliers) (?cnode csvtordf:constraintElement ?value)]
 
 [R4: (?col rdf:type csvw:Column) (?cell rdf:type csvw:Cell) (?cell csvtordf:hasValue ?value) (?col csvtordf:contains ?cell)
 (?col csvtordf:Q1 ?lowerQ) (?col csvtordf:Q3 ?upperQ) difference(?upperQ ?lowerQ ?iqr) product(?iqr 1.5 ?iqrange)  
-difference(?lowerQ ?iqrange ?LL) lessThan(?value ?LL) ->  (?cell csvtordf:constraintType csvtordf:Outliers) ]
+difference(?lowerQ ?iqrange ?LL) lessThan(?value ?LL) -> (?cnode rdf:type csvtordf:DataQuality) (?col csvtordf:hasConstraint ?cnode)
+(?cnode csvtordf:constraintType csvtordf:Outliers) (?cnode csvtordf:constraintElement ?value)]
 
 [R5:  (?col rdf:type csvw:Column) (?cell rdf:type csvw:Cell) (?cell csvtordf:hasValue ?value) (?col csvtordf:contains ?cell) 
 (?col csvtordf:Q1 ?lowerQ) (?col csvtordf:Q3 ?upperQ) difference(?upperQ ?lowerQ ?iqr) product(?iqr 1.5 ?iqrange)  
-sum(?upperQ ?iqrange ?UL) greaterThan(?value ?UL)  -> (?cell csvtordf:constraintType csvtordf:Outliers)]
+sum(?upperQ ?iqrange ?UL) greaterThan(?value ?UL)  -> (?cnode rdf:type csvtordf:DataQuality) (?col csvtordf:hasConstraint ?cnode)
+(?cnode csvtordf:constraintType csvtordf:Outliers) (?cnode csvtordf:constraintElement ?value)]
