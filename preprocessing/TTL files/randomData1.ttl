@@ -12,6 +12,21 @@ dc:contributor a owl:AnnotationProperty .
 
 dc:creator a owl:AnnotationProperty .
 
+xsd:byte a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:decimal a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:double a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:long a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:short a owl:NamedIndividual,
+        csvw:Datatype .
+
 csvw:TablerandomData1 a csvw:Table ;
     csvw:row <http://www.w3.org/ns/csvw#Row=1>,
         <http://www.w3.org/ns/csvw#Row=10>,
@@ -44,29 +59,22 @@ csvw:TablerandomData1 a csvw:Table ;
         <http://www.w3.org/ns/csvw#Row=8>,
         <http://www.w3.org/ns/csvw#Row=9> .
 
-csvw:column a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:column a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:comment "An array property of column descriptions."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range csvw:Schema ;
     owl:inverseOf csvtordf:hasColumn .
 
-csvw:datatype a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:datatype a owl:FunctionalProperty,
         owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:domain csvw:Column ;
     rdfs:range csvw:Datatype .
 
-csvw:describes a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:describes a owl:ObjectProperty ;
     rdfs:comment "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource."@en ;
     rdfs:domain csvw:Row ;
-    rdfs:range csvw:Column ;
+    rdfs:range csvw:Schema ;
     owl:inverseOf csvtordf:isDescribedOf .
 
 csvw:format a owl:DatatypeProperty,
@@ -77,13 +85,10 @@ csvw:format a owl:DatatypeProperty,
 
 csvw:null a owl:DatatypeProperty ;
     rdfs:comment "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is 'null'."@en ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:domain csvw:Cell ;
     rdfs:range xsd:string .
 
-csvw:row a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:row a owl:ObjectProperty ;
     rdfs:comment "Relates a Table to each Row output."@en ;
     rdfs:domain csvw:Table ;
     rdfs:range csvw:Row ;
@@ -101,17 +106,13 @@ csvw:rownum a owl:DatatypeProperty,
     rdfs:domain csvw:Row ;
     rdfs:range xsd:int .
 
-csvw:table a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:table a owl:ObjectProperty ;
     rdfs:comment "Relates an Table group to annotated tables."@en ;
     rdfs:domain csvw:TableGroup ;
     rdfs:range csvw:Table ;
     owl:inverseOf csvtordf:belongsToGroup .
 
-csvw:tableSchema a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:tableSchema a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:comment "An object property that provides a single schema description."@en ;
     rdfs:domain csvw:Table ;
@@ -142,30 +143,22 @@ csvtordf:Q3 a owl:DatatypeProperty,
     rdfs:domain csvw:Column ;
     rdfs:range xsd:float .
 
-csvtordf:belongsToColumn a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToColumn a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Cell ;
-    rdfs:range csvw:Column ;
-    owl:inverseOf csvtordf:contains .
+    rdfs:range csvw:Column .
 
-csvtordf:constraintElement a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
-    rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
-
-csvtordf:constraintType a owl:InverseFunctionalProperty,
+csvtordf:belongstoRow a owl:FunctionalProperty,
         owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Cell .
+    owl:inverseOf csvtordf:hasCell .
+
+csvtordf:constraintElement a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell .
 
 csvtordf:expectedDT a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+    rdfs:range rdfs:Literal .
 
 csvtordf:fileModified a owl:DatatypeProperty,
         owl:FunctionalProperty ;
@@ -179,15 +172,10 @@ csvtordf:fileSize a owl:DatatypeProperty,
     rdfs:domain csvw:Table ;
     rdfs:range xsd:float .
 
-csvtordf:foundDT a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
-    rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+csvtordf:foundDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell .
 
-csvtordf:hasConstraint a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:hasConstraint a owl:ObjectProperty ;
     rdfs:domain csvw:Column ;
     rdfs:range csvtordf:DataQuality ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -195,19 +183,15 @@ csvtordf:hasConstraint a owl:AsymmetricProperty,
 csvtordf:hasValue a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:comment "Represents cell value."@en ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Cell csvw:Column csvtordf:DataQuality ) ] ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+    rdfs:domain csvw:Cell ;
+    rdfs:range rdfs:Literal .
 
-csvtordf:invalidDate a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
+csvtordf:invalidDate a owl:DatatypeProperty ;
     rdfs:comment "Checks the data quality metric to see if there is any wrong date format."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range xsd:boolean .
 
-csvtordf:lang a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
+csvtordf:lang a owl:DatatypeProperty ;
     rdfs:comment "Represents language of the value."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range xsd:string .
@@ -224,628 +208,745 @@ csvtordf:stdDev a owl:DatatypeProperty,
     rdfs:domain csvw:Column ;
     rdfs:range xsd:float .
 
+xsd:boolean a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:dateTime a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:int a owl:NamedIndividual,
+        csvw:Datatype .
+
 <http://www.w3.org/ns/csvw#Cell=1-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 107 .
 
 <http://www.w3.org/ns/csvw#Cell=1-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=1-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "59.0315405967719"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=1-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "kksaL"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=10-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue "-10.0"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "23.4609816459278"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=10-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "tbLeT"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=11-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 13 .
 
 <http://www.w3.org/ns/csvw#Cell=11-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "11.513038163161"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=11-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "SeuGG"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=12-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=12-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "25.3234645128681"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=12-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "34.2"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=13-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=13-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 27 .
 
 <http://www.w3.org/ns/csvw#Cell=13-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "26.0250679376008"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=13-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "pMeiV"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=14-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=14-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 20 .
 
 <http://www.w3.org/ns/csvw#Cell=14-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "15.7440534899184"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=14-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "eawSi"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=15-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=15-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=15-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "27.5687059686533"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=15-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "WIWxF"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=16-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=16-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 0 .
 
 <http://www.w3.org/ns/csvw#Cell=16-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "23.34840083787"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=16-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "wtcEe"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=17-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=17-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=17-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "12.9129578315501"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=17-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "FabLp"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=18-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=18-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 16 .
 
 <http://www.w3.org/ns/csvw#Cell=18-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "15.9148326188767"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=18-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=19-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=19-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=19-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "10.3557304242372"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=19-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "RAZQw"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=2-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 19 .
 
 <http://www.w3.org/ns/csvw#Cell=2-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "16.590569981428"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=2-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "elRni"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=20-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=20-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 8 .
 
 <http://www.w3.org/ns/csvw#Cell=20-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "15.9148326188767"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=20-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "jdHnO"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=21-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=21-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=21-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "18.5073356677613"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=21-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "sxfQd"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=22-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=22-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 22 .
 
 <http://www.w3.org/ns/csvw#Cell=22-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "24.7831435930399"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=22-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "JMbKF"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=23-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=23-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=23-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "15.623757543073"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=23-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "gLMRm"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=24-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=24-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=24-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "10.0235664135724"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=24-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "liBEH"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=25-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=25-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=25-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "0.745939386632035"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=25-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "gFnAY"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=26-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=26-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=26-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "19.4701002717411"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=26-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "inZOh"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=27-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=27-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=27-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "17.848644758118"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=27-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "OWeTe"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=28-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 31 .
 
 <http://www.w3.org/ns/csvw#Cell=28-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 16 .
 
 <http://www.w3.org/ns/csvw#Cell=28-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "11.4280170481853"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=28-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "Pczpw"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=29-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=29-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 30 .
 
 <http://www.w3.org/ns/csvw#Cell=29-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "11.4479356844327"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=29-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "NgcXb"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 32 .
 
 <http://www.w3.org/ns/csvw#Cell=3-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 11 .
 
 <http://www.w3.org/ns/csvw#Cell=3-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "24.8822631135734"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=3-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "rlTfD"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=30-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=30-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=30-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "5.10215327834602"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=30-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "VPqpX"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=4-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=4-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "20.4532215419259"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=4-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "ItuNh"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 35 .
 
 <http://www.w3.org/ns/csvw#Cell=5-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 3 .
 
 <http://www.w3.org/ns/csvw#Cell=5-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "10.7715736868005"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=5-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "crpAR"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=6-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 11 .
 
 <http://www.w3.org/ns/csvw#Cell=6-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "12.3745833041912"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=6-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "ZlyfI"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 33 .
 
 <http://www.w3.org/ns/csvw#Cell=7-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 15 .
 
 <http://www.w3.org/ns/csvw#Cell=7-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "26.6415529572494"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=7-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "VSYLC"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 31 .
 
 <http://www.w3.org/ns/csvw#Cell=8-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 28 .
 
 <http://www.w3.org/ns/csvw#Cell=8-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "9.91867289482988"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=8-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "FQIJI"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-col0> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col0 ;
     csvtordf:hasValue 34 .
 
 <http://www.w3.org/ns/csvw#Cell=9-col1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col1 ;
     csvtordf:hasValue 37 .
 
 <http://www.w3.org/ns/csvw#Cell=9-col2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col2 ;
     csvtordf:hasValue "13.56905357906"^^xsd:float .
 
 <http://www.w3.org/ns/csvw#Cell=9-col3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_col3 ;
     csvtordf:hasValue "GpSWb"^^xsd:string .
 
-csvw:Datatype a owl:Class ;
-    rdfs:comment "Describes facets of a datatype." ;
-    owl:disjointWith csvw:Row,
-        csvw:Schema,
-        csvw:TableGroup .
-
 <http://www.w3.org/ns/csvw#Row=1> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "1"^^xsd:int .
+    csvw:rownum "1"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=1-col0>,
+        <http://www.w3.org/ns/csvw#Cell=1-col1>,
+        <http://www.w3.org/ns/csvw#Cell=1-col2>,
+        <http://www.w3.org/ns/csvw#Cell=1-col3> .
 
 <http://www.w3.org/ns/csvw#Row=10> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "10"^^xsd:int .
+    csvw:rownum "10"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=10-col0>,
+        <http://www.w3.org/ns/csvw#Cell=10-col1>,
+        <http://www.w3.org/ns/csvw#Cell=10-col2>,
+        <http://www.w3.org/ns/csvw#Cell=10-col3> .
 
 <http://www.w3.org/ns/csvw#Row=11> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "11"^^xsd:int .
+    csvw:rownum "11"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=11-col0>,
+        <http://www.w3.org/ns/csvw#Cell=11-col1>,
+        <http://www.w3.org/ns/csvw#Cell=11-col2>,
+        <http://www.w3.org/ns/csvw#Cell=11-col3> .
 
 <http://www.w3.org/ns/csvw#Row=12> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "12"^^xsd:int .
+    csvw:rownum "12"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=12-col0>,
+        <http://www.w3.org/ns/csvw#Cell=12-col1>,
+        <http://www.w3.org/ns/csvw#Cell=12-col2>,
+        <http://www.w3.org/ns/csvw#Cell=12-col3> .
 
 <http://www.w3.org/ns/csvw#Row=13> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "13"^^xsd:int .
+    csvw:rownum "13"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=13-col0>,
+        <http://www.w3.org/ns/csvw#Cell=13-col1>,
+        <http://www.w3.org/ns/csvw#Cell=13-col2>,
+        <http://www.w3.org/ns/csvw#Cell=13-col3> .
 
 <http://www.w3.org/ns/csvw#Row=14> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "14"^^xsd:int .
+    csvw:rownum "14"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=14-col0>,
+        <http://www.w3.org/ns/csvw#Cell=14-col1>,
+        <http://www.w3.org/ns/csvw#Cell=14-col2>,
+        <http://www.w3.org/ns/csvw#Cell=14-col3> .
 
 <http://www.w3.org/ns/csvw#Row=15> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "15"^^xsd:int .
+    csvw:rownum "15"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=15-col0>,
+        <http://www.w3.org/ns/csvw#Cell=15-col1>,
+        <http://www.w3.org/ns/csvw#Cell=15-col2>,
+        <http://www.w3.org/ns/csvw#Cell=15-col3> .
 
 <http://www.w3.org/ns/csvw#Row=16> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "16"^^xsd:int .
+    csvw:rownum "16"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=16-col0>,
+        <http://www.w3.org/ns/csvw#Cell=16-col1>,
+        <http://www.w3.org/ns/csvw#Cell=16-col2>,
+        <http://www.w3.org/ns/csvw#Cell=16-col3> .
 
 <http://www.w3.org/ns/csvw#Row=17> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "17"^^xsd:int .
+    csvw:rownum "17"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=17-col0>,
+        <http://www.w3.org/ns/csvw#Cell=17-col1>,
+        <http://www.w3.org/ns/csvw#Cell=17-col2>,
+        <http://www.w3.org/ns/csvw#Cell=17-col3> .
 
 <http://www.w3.org/ns/csvw#Row=18> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "18"^^xsd:int .
+    csvw:rownum "18"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=18-col0>,
+        <http://www.w3.org/ns/csvw#Cell=18-col1>,
+        <http://www.w3.org/ns/csvw#Cell=18-col2>,
+        <http://www.w3.org/ns/csvw#Cell=18-col3> .
 
 <http://www.w3.org/ns/csvw#Row=19> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "19"^^xsd:int .
+    csvw:rownum "19"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=19-col0>,
+        <http://www.w3.org/ns/csvw#Cell=19-col1>,
+        <http://www.w3.org/ns/csvw#Cell=19-col2>,
+        <http://www.w3.org/ns/csvw#Cell=19-col3> .
 
 <http://www.w3.org/ns/csvw#Row=2> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "2"^^xsd:int .
+    csvw:rownum "2"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=2-col0>,
+        <http://www.w3.org/ns/csvw#Cell=2-col1>,
+        <http://www.w3.org/ns/csvw#Cell=2-col2>,
+        <http://www.w3.org/ns/csvw#Cell=2-col3> .
 
 <http://www.w3.org/ns/csvw#Row=20> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "20"^^xsd:int .
+    csvw:rownum "20"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=20-col0>,
+        <http://www.w3.org/ns/csvw#Cell=20-col1>,
+        <http://www.w3.org/ns/csvw#Cell=20-col2>,
+        <http://www.w3.org/ns/csvw#Cell=20-col3> .
 
 <http://www.w3.org/ns/csvw#Row=21> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "21"^^xsd:int .
+    csvw:rownum "21"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=21-col0>,
+        <http://www.w3.org/ns/csvw#Cell=21-col1>,
+        <http://www.w3.org/ns/csvw#Cell=21-col2>,
+        <http://www.w3.org/ns/csvw#Cell=21-col3> .
 
 <http://www.w3.org/ns/csvw#Row=22> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "22"^^xsd:int .
+    csvw:rownum "22"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=22-col0>,
+        <http://www.w3.org/ns/csvw#Cell=22-col1>,
+        <http://www.w3.org/ns/csvw#Cell=22-col2>,
+        <http://www.w3.org/ns/csvw#Cell=22-col3> .
 
 <http://www.w3.org/ns/csvw#Row=23> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "23"^^xsd:int .
+    csvw:rownum "23"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=23-col0>,
+        <http://www.w3.org/ns/csvw#Cell=23-col1>,
+        <http://www.w3.org/ns/csvw#Cell=23-col2>,
+        <http://www.w3.org/ns/csvw#Cell=23-col3> .
 
 <http://www.w3.org/ns/csvw#Row=24> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "24"^^xsd:int .
+    csvw:rownum "24"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=24-col0>,
+        <http://www.w3.org/ns/csvw#Cell=24-col1>,
+        <http://www.w3.org/ns/csvw#Cell=24-col2>,
+        <http://www.w3.org/ns/csvw#Cell=24-col3> .
 
 <http://www.w3.org/ns/csvw#Row=25> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "25"^^xsd:int .
+    csvw:rownum "25"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=25-col0>,
+        <http://www.w3.org/ns/csvw#Cell=25-col1>,
+        <http://www.w3.org/ns/csvw#Cell=25-col2>,
+        <http://www.w3.org/ns/csvw#Cell=25-col3> .
 
 <http://www.w3.org/ns/csvw#Row=26> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "26"^^xsd:int .
+    csvw:rownum "26"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=26-col0>,
+        <http://www.w3.org/ns/csvw#Cell=26-col1>,
+        <http://www.w3.org/ns/csvw#Cell=26-col2>,
+        <http://www.w3.org/ns/csvw#Cell=26-col3> .
 
 <http://www.w3.org/ns/csvw#Row=27> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "27"^^xsd:int .
+    csvw:rownum "27"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=27-col0>,
+        <http://www.w3.org/ns/csvw#Cell=27-col1>,
+        <http://www.w3.org/ns/csvw#Cell=27-col2>,
+        <http://www.w3.org/ns/csvw#Cell=27-col3> .
 
 <http://www.w3.org/ns/csvw#Row=28> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "28"^^xsd:int .
+    csvw:rownum "28"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=28-col0>,
+        <http://www.w3.org/ns/csvw#Cell=28-col1>,
+        <http://www.w3.org/ns/csvw#Cell=28-col2>,
+        <http://www.w3.org/ns/csvw#Cell=28-col3> .
 
 <http://www.w3.org/ns/csvw#Row=29> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "29"^^xsd:int .
+    csvw:rownum "29"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=29-col0>,
+        <http://www.w3.org/ns/csvw#Cell=29-col1>,
+        <http://www.w3.org/ns/csvw#Cell=29-col2>,
+        <http://www.w3.org/ns/csvw#Cell=29-col3> .
 
 <http://www.w3.org/ns/csvw#Row=3> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "3"^^xsd:int .
+    csvw:rownum "3"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=3-col0>,
+        <http://www.w3.org/ns/csvw#Cell=3-col1>,
+        <http://www.w3.org/ns/csvw#Cell=3-col2>,
+        <http://www.w3.org/ns/csvw#Cell=3-col3> .
 
 <http://www.w3.org/ns/csvw#Row=30> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "30"^^xsd:int .
+    csvw:rownum "30"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=30-col0>,
+        <http://www.w3.org/ns/csvw#Cell=30-col1>,
+        <http://www.w3.org/ns/csvw#Cell=30-col2>,
+        <http://www.w3.org/ns/csvw#Cell=30-col3> .
 
 <http://www.w3.org/ns/csvw#Row=4> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "4"^^xsd:int .
+    csvw:rownum "4"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=4-col0>,
+        <http://www.w3.org/ns/csvw#Cell=4-col1>,
+        <http://www.w3.org/ns/csvw#Cell=4-col2>,
+        <http://www.w3.org/ns/csvw#Cell=4-col3> .
 
 <http://www.w3.org/ns/csvw#Row=5> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "5"^^xsd:int .
+    csvw:rownum "5"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=5-col0>,
+        <http://www.w3.org/ns/csvw#Cell=5-col1>,
+        <http://www.w3.org/ns/csvw#Cell=5-col2>,
+        <http://www.w3.org/ns/csvw#Cell=5-col3> .
 
 <http://www.w3.org/ns/csvw#Row=6> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "6"^^xsd:int .
+    csvw:rownum "6"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=6-col0>,
+        <http://www.w3.org/ns/csvw#Cell=6-col1>,
+        <http://www.w3.org/ns/csvw#Cell=6-col2>,
+        <http://www.w3.org/ns/csvw#Cell=6-col3> .
 
 <http://www.w3.org/ns/csvw#Row=7> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "7"^^xsd:int .
+    csvw:rownum "7"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=7-col0>,
+        <http://www.w3.org/ns/csvw#Cell=7-col1>,
+        <http://www.w3.org/ns/csvw#Cell=7-col2>,
+        <http://www.w3.org/ns/csvw#Cell=7-col3> .
 
 <http://www.w3.org/ns/csvw#Row=8> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "8"^^xsd:int .
+    csvw:rownum "8"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=8-col0>,
+        <http://www.w3.org/ns/csvw#Cell=8-col1>,
+        <http://www.w3.org/ns/csvw#Cell=8-col2>,
+        <http://www.w3.org/ns/csvw#Cell=8-col3> .
 
 <http://www.w3.org/ns/csvw#Row=9> a csvw:Row ;
-    csvw:describes csvw:Column_col0,
-        csvw:Column_col1,
-        csvw:Column_col2,
-        csvw:Column_col3 ;
-    csvw:rownum "9"^^xsd:int .
+    csvw:rownum "9"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=9-col0>,
+        <http://www.w3.org/ns/csvw#Cell=9-col1>,
+        <http://www.w3.org/ns/csvw#Cell=9-col2>,
+        <http://www.w3.org/ns/csvw#Cell=9-col3> .
 
 csvtordf:SyntaxAccuracy a owl:Class ;
     rdfs:subClassOf csvtordf:DataQuality .
 
-csvtordf:belongsToGroup a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToGroup a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Table ;
     rdfs:range csvw:TableGroup .
 
-csvtordf:belongsToTable a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToTable a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Row ;
     rdfs:range csvw:Table .
 
-csvtordf:contains a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Cell .
-
-csvtordf:describesTable a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:describesTable a owl:ObjectProperty ;
     rdfs:domain csvw:Schema ;
     rdfs:range csvw:Table .
 
-csvtordf:hasColumn a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:hasCell a owl:ObjectProperty ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Cell .
+
+csvtordf:hasColumn a owl:ObjectProperty ;
     rdfs:domain csvw:Schema ;
     rdfs:range csvw:Column .
 
-csvtordf:isDescribedOf a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Row .
+csvtordf:isDescribedOf a owl:ObjectProperty .
+
+xsd:integer a owl:NamedIndividual,
+        csvw:Datatype .
 
 csvw:TableGroup a owl:Class ;
     rdfs:comment "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables."@en .
 
 csvtordf:DataQuality a owl:Class .
+
+xsd:string a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:float a owl:NamedIndividual,
+        csvw:Datatype .
 
 csvw:Schema a owl:Class ;
     rdfs:comment "A Schema is a definition of a tabular format that may be common to multiple tables." ;
@@ -854,146 +955,32 @@ csvw:Schema a owl:Class ;
 csvw:Table a owl:Class ;
     rdfs:comment "A table represents a dataset or annotated table." .
 
+csvw:Datatype a owl:Class ;
+    rdfs:comment "Describes facets of a datatype." ;
+    owl:disjointWith csvw:Row,
+        csvw:Schema,
+        csvw:TableGroup .
+
 csvw:Column a owl:Class ;
     rdfs:comment "A Column represents a vertical arrangement of Cells within a Table."@en .
 
 csvw:Column_col0 a csvw:Column ;
     csvw:datatype xsd:integer ;
     csvtordf:Q1 "33.0"^^xsd:float ;
-    csvtordf:Q3 "34.75"^^xsd:float ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col0>,
-        <http://www.w3.org/ns/csvw#Cell=10-col0>,
-        <http://www.w3.org/ns/csvw#Cell=11-col0>,
-        <http://www.w3.org/ns/csvw#Cell=12-col0>,
-        <http://www.w3.org/ns/csvw#Cell=13-col0>,
-        <http://www.w3.org/ns/csvw#Cell=14-col0>,
-        <http://www.w3.org/ns/csvw#Cell=15-col0>,
-        <http://www.w3.org/ns/csvw#Cell=16-col0>,
-        <http://www.w3.org/ns/csvw#Cell=17-col0>,
-        <http://www.w3.org/ns/csvw#Cell=18-col0>,
-        <http://www.w3.org/ns/csvw#Cell=19-col0>,
-        <http://www.w3.org/ns/csvw#Cell=2-col0>,
-        <http://www.w3.org/ns/csvw#Cell=20-col0>,
-        <http://www.w3.org/ns/csvw#Cell=21-col0>,
-        <http://www.w3.org/ns/csvw#Cell=22-col0>,
-        <http://www.w3.org/ns/csvw#Cell=23-col0>,
-        <http://www.w3.org/ns/csvw#Cell=24-col0>,
-        <http://www.w3.org/ns/csvw#Cell=25-col0>,
-        <http://www.w3.org/ns/csvw#Cell=26-col0>,
-        <http://www.w3.org/ns/csvw#Cell=27-col0>,
-        <http://www.w3.org/ns/csvw#Cell=28-col0>,
-        <http://www.w3.org/ns/csvw#Cell=29-col0>,
-        <http://www.w3.org/ns/csvw#Cell=3-col0>,
-        <http://www.w3.org/ns/csvw#Cell=30-col0>,
-        <http://www.w3.org/ns/csvw#Cell=4-col0>,
-        <http://www.w3.org/ns/csvw#Cell=5-col0>,
-        <http://www.w3.org/ns/csvw#Cell=6-col0>,
-        <http://www.w3.org/ns/csvw#Cell=7-col0>,
-        <http://www.w3.org/ns/csvw#Cell=8-col0>,
-        <http://www.w3.org/ns/csvw#Cell=9-col0> .
+    csvtordf:Q3 "34.75"^^xsd:float .
 
 csvw:Column_col1 a csvw:Column ;
     csvw:datatype xsd:integer ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col1>,
-        <http://www.w3.org/ns/csvw#Cell=10-col1>,
-        <http://www.w3.org/ns/csvw#Cell=11-col1>,
-        <http://www.w3.org/ns/csvw#Cell=12-col1>,
-        <http://www.w3.org/ns/csvw#Cell=13-col1>,
-        <http://www.w3.org/ns/csvw#Cell=14-col1>,
-        <http://www.w3.org/ns/csvw#Cell=15-col1>,
-        <http://www.w3.org/ns/csvw#Cell=16-col1>,
-        <http://www.w3.org/ns/csvw#Cell=17-col1>,
-        <http://www.w3.org/ns/csvw#Cell=18-col1>,
-        <http://www.w3.org/ns/csvw#Cell=19-col1>,
-        <http://www.w3.org/ns/csvw#Cell=2-col1>,
-        <http://www.w3.org/ns/csvw#Cell=20-col1>,
-        <http://www.w3.org/ns/csvw#Cell=21-col1>,
-        <http://www.w3.org/ns/csvw#Cell=22-col1>,
-        <http://www.w3.org/ns/csvw#Cell=23-col1>,
-        <http://www.w3.org/ns/csvw#Cell=24-col1>,
-        <http://www.w3.org/ns/csvw#Cell=25-col1>,
-        <http://www.w3.org/ns/csvw#Cell=26-col1>,
-        <http://www.w3.org/ns/csvw#Cell=27-col1>,
-        <http://www.w3.org/ns/csvw#Cell=28-col1>,
-        <http://www.w3.org/ns/csvw#Cell=29-col1>,
-        <http://www.w3.org/ns/csvw#Cell=3-col1>,
-        <http://www.w3.org/ns/csvw#Cell=30-col1>,
-        <http://www.w3.org/ns/csvw#Cell=4-col1>,
-        <http://www.w3.org/ns/csvw#Cell=5-col1>,
-        <http://www.w3.org/ns/csvw#Cell=6-col1>,
-        <http://www.w3.org/ns/csvw#Cell=7-col1>,
-        <http://www.w3.org/ns/csvw#Cell=8-col1>,
-        <http://www.w3.org/ns/csvw#Cell=9-col1> ;
     csvtordf:mean "14.9"^^xsd:float ;
     csvtordf:stdDev "9.82"^^xsd:float .
 
 csvw:Column_col2 a csvw:Column ;
     csvw:datatype xsd:float ;
     csvtordf:Q1 "11.464211304114775"^^xsd:float ;
-    csvtordf:Q3 "23.432836443913352"^^xsd:float ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col2>,
-        <http://www.w3.org/ns/csvw#Cell=10-col2>,
-        <http://www.w3.org/ns/csvw#Cell=11-col2>,
-        <http://www.w3.org/ns/csvw#Cell=12-col2>,
-        <http://www.w3.org/ns/csvw#Cell=13-col2>,
-        <http://www.w3.org/ns/csvw#Cell=14-col2>,
-        <http://www.w3.org/ns/csvw#Cell=15-col2>,
-        <http://www.w3.org/ns/csvw#Cell=16-col2>,
-        <http://www.w3.org/ns/csvw#Cell=17-col2>,
-        <http://www.w3.org/ns/csvw#Cell=18-col2>,
-        <http://www.w3.org/ns/csvw#Cell=19-col2>,
-        <http://www.w3.org/ns/csvw#Cell=2-col2>,
-        <http://www.w3.org/ns/csvw#Cell=20-col2>,
-        <http://www.w3.org/ns/csvw#Cell=21-col2>,
-        <http://www.w3.org/ns/csvw#Cell=22-col2>,
-        <http://www.w3.org/ns/csvw#Cell=23-col2>,
-        <http://www.w3.org/ns/csvw#Cell=24-col2>,
-        <http://www.w3.org/ns/csvw#Cell=25-col2>,
-        <http://www.w3.org/ns/csvw#Cell=26-col2>,
-        <http://www.w3.org/ns/csvw#Cell=27-col2>,
-        <http://www.w3.org/ns/csvw#Cell=28-col2>,
-        <http://www.w3.org/ns/csvw#Cell=29-col2>,
-        <http://www.w3.org/ns/csvw#Cell=3-col2>,
-        <http://www.w3.org/ns/csvw#Cell=30-col2>,
-        <http://www.w3.org/ns/csvw#Cell=4-col2>,
-        <http://www.w3.org/ns/csvw#Cell=5-col2>,
-        <http://www.w3.org/ns/csvw#Cell=6-col2>,
-        <http://www.w3.org/ns/csvw#Cell=7-col2>,
-        <http://www.w3.org/ns/csvw#Cell=8-col2>,
-        <http://www.w3.org/ns/csvw#Cell=9-col2> .
+    csvtordf:Q3 "23.432836443913352"^^xsd:float .
 
 csvw:Column_col3 a csvw:Column ;
-    csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-col3>,
-        <http://www.w3.org/ns/csvw#Cell=10-col3>,
-        <http://www.w3.org/ns/csvw#Cell=11-col3>,
-        <http://www.w3.org/ns/csvw#Cell=12-col3>,
-        <http://www.w3.org/ns/csvw#Cell=13-col3>,
-        <http://www.w3.org/ns/csvw#Cell=14-col3>,
-        <http://www.w3.org/ns/csvw#Cell=15-col3>,
-        <http://www.w3.org/ns/csvw#Cell=16-col3>,
-        <http://www.w3.org/ns/csvw#Cell=17-col3>,
-        <http://www.w3.org/ns/csvw#Cell=18-col3>,
-        <http://www.w3.org/ns/csvw#Cell=19-col3>,
-        <http://www.w3.org/ns/csvw#Cell=2-col3>,
-        <http://www.w3.org/ns/csvw#Cell=20-col3>,
-        <http://www.w3.org/ns/csvw#Cell=21-col3>,
-        <http://www.w3.org/ns/csvw#Cell=22-col3>,
-        <http://www.w3.org/ns/csvw#Cell=23-col3>,
-        <http://www.w3.org/ns/csvw#Cell=24-col3>,
-        <http://www.w3.org/ns/csvw#Cell=25-col3>,
-        <http://www.w3.org/ns/csvw#Cell=26-col3>,
-        <http://www.w3.org/ns/csvw#Cell=27-col3>,
-        <http://www.w3.org/ns/csvw#Cell=28-col3>,
-        <http://www.w3.org/ns/csvw#Cell=29-col3>,
-        <http://www.w3.org/ns/csvw#Cell=3-col3>,
-        <http://www.w3.org/ns/csvw#Cell=30-col3>,
-        <http://www.w3.org/ns/csvw#Cell=4-col3>,
-        <http://www.w3.org/ns/csvw#Cell=5-col3>,
-        <http://www.w3.org/ns/csvw#Cell=6-col3>,
-        <http://www.w3.org/ns/csvw#Cell=7-col3>,
-        <http://www.w3.org/ns/csvw#Cell=8-col3>,
-        <http://www.w3.org/ns/csvw#Cell=9-col3> .
+    csvw:datatype xsd:string .
 
 csvw:Row a owl:Class ;
     rdfs:comment "A Row represents a horizontal arrangement of cells within a Table."@en .

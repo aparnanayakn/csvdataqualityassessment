@@ -12,6 +12,21 @@ dc:contributor a owl:AnnotationProperty .
 
 dc:creator a owl:AnnotationProperty .
 
+xsd:byte a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:decimal a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:double a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:long a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:short a owl:NamedIndividual,
+        csvw:Datatype .
+
 csvw:Tableeducation a csvw:Table ;
     csvw:row <http://www.w3.org/ns/csvw#Row=1>,
         <http://www.w3.org/ns/csvw#Row=10>,
@@ -27,29 +42,22 @@ csvw:Tableeducation a csvw:Table ;
         <http://www.w3.org/ns/csvw#Row=8>,
         <http://www.w3.org/ns/csvw#Row=9> .
 
-csvw:column a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:column a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:comment "An array property of column descriptions."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range csvw:Schema ;
     owl:inverseOf csvtordf:hasColumn .
 
-csvw:datatype a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:datatype a owl:FunctionalProperty,
         owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:domain csvw:Column ;
     rdfs:range csvw:Datatype .
 
-csvw:describes a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:describes a owl:ObjectProperty ;
     rdfs:comment "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource."@en ;
     rdfs:domain csvw:Row ;
-    rdfs:range csvw:Column ;
+    rdfs:range csvw:Schema ;
     owl:inverseOf csvtordf:isDescribedOf .
 
 csvw:format a owl:DatatypeProperty,
@@ -60,13 +68,10 @@ csvw:format a owl:DatatypeProperty,
 
 csvw:null a owl:DatatypeProperty ;
     rdfs:comment "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is 'null'."@en ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Column csvw:Schema ) ] ;
+    rdfs:domain csvw:Cell ;
     rdfs:range xsd:string .
 
-csvw:row a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:row a owl:ObjectProperty ;
     rdfs:comment "Relates a Table to each Row output."@en ;
     rdfs:domain csvw:Table ;
     rdfs:range csvw:Row ;
@@ -84,17 +89,13 @@ csvw:rownum a owl:DatatypeProperty,
     rdfs:domain csvw:Row ;
     rdfs:range xsd:int .
 
-csvw:table a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvw:table a owl:ObjectProperty ;
     rdfs:comment "Relates an Table group to annotated tables."@en ;
     rdfs:domain csvw:TableGroup ;
     rdfs:range csvw:Table ;
     owl:inverseOf csvtordf:belongsToGroup .
 
-csvw:tableSchema a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvw:tableSchema a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:comment "An object property that provides a single schema description."@en ;
     rdfs:domain csvw:Table ;
@@ -125,30 +126,22 @@ csvtordf:Q3 a owl:DatatypeProperty,
     rdfs:domain csvw:Column ;
     rdfs:range xsd:float .
 
-csvtordf:belongsToColumn a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToColumn a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Cell ;
-    rdfs:range csvw:Column ;
-    owl:inverseOf csvtordf:contains .
+    rdfs:range csvw:Column .
 
-csvtordf:constraintElement a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
-    rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
-
-csvtordf:constraintType a owl:InverseFunctionalProperty,
+csvtordf:belongstoRow a owl:FunctionalProperty,
         owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Cell .
+    owl:inverseOf csvtordf:hasCell .
+
+csvtordf:constraintElement a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell .
 
 csvtordf:expectedDT a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+    rdfs:range rdfs:Literal .
 
 csvtordf:fileModified a owl:DatatypeProperty,
         owl:FunctionalProperty ;
@@ -162,15 +155,10 @@ csvtordf:fileSize a owl:DatatypeProperty,
     rdfs:domain csvw:Table ;
     rdfs:range xsd:float .
 
-csvtordf:foundDT a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
-    rdfs:domain csvw:Cell ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+csvtordf:foundDT a owl:DatatypeProperty ;
+    rdfs:domain csvw:Cell .
 
-csvtordf:hasConstraint a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:hasConstraint a owl:ObjectProperty ;
     rdfs:domain csvw:Column ;
     rdfs:range csvtordf:DataQuality ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -178,19 +166,15 @@ csvtordf:hasConstraint a owl:AsymmetricProperty,
 csvtordf:hasValue a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:comment "Represents cell value."@en ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( csvw:Cell csvw:Column csvtordf:DataQuality ) ] ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( xsd:anyURI xsd:boolean xsd:dateTime xsd:dateTimeStamp xsd:decimal xsd:double xsd:float xsd:int xsd:integer xsd:string ) ] .
+    rdfs:domain csvw:Cell ;
+    rdfs:range rdfs:Literal .
 
-csvtordf:invalidDate a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
+csvtordf:invalidDate a owl:DatatypeProperty ;
     rdfs:comment "Checks the data quality metric to see if there is any wrong date format."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range xsd:boolean .
 
-csvtordf:lang a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
+csvtordf:lang a owl:DatatypeProperty ;
     rdfs:comment "Represents language of the value."@en ;
     rdfs:domain csvw:Column ;
     rdfs:range xsd:string .
@@ -207,563 +191,674 @@ csvtordf:stdDev a owl:DatatypeProperty,
     rdfs:domain csvw:Column ;
     rdfs:range xsd:float .
 
+xsd:boolean a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:dateTime a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:int a owl:NamedIndividual,
+        csvw:Datatype .
+
+xsd:integer a owl:NamedIndividual,
+        csvw:Datatype .
+
 <http://www.w3.org/ns/csvw#Cell=1-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Kilmantin Hill"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue " "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow Town Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Wicklow Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "Wicklib@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 1 .
 
 <http://www.w3.org/ns/csvw#Cell=1-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "0404 67025"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=1-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=10-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Aughrim"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "County Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue " "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Aughrim Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "cagnew@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 10 .
 
 <http://www.w3.org/ns/csvw#Cell=10-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "0402 36036"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=10-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=11-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Main Street"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Arklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Arklow Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "arklowlibrary@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 12 .
 
 <http://www.w3.org/ns/csvw#Cell=11-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "0402 39977"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=11-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=12-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Carnew"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue " "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Carnew Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "MHenness@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 13 .
 
 <http://www.w3.org/ns/csvw#Cell=12-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "053 942 6088"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=12-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=13-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Mill Road"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Greystones"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Greystones Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "greylib@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 14 .
 
 <http://www.w3.org/ns/csvw#Cell=13-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "01 287 3548"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=13-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=2-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Wicklow County Archives, Wicklow County Council, Station Road,"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Wicklow Family History Centre"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "wfh@eircom.net"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 2 .
 
 <http://www.w3.org/ns/csvw#Cell=2-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "0404 20126"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=2-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=3-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Eglington Road"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Bray"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Bray Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue " braylib@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 3 .
 
 <http://www.w3.org/ns/csvw#Cell=3-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "01 2862600"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=3-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=4-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Boghall Road"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Bray"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Ballywaltrim Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "ballywaltrimlibrary@wicklowcoco.ie "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 4 .
 
 <http://www.w3.org/ns/csvw#Cell=4-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "01 2723205"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=4-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=5-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Enniskerry"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue " "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Enniskerry Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "smmulligan@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 5 .
 
 <http://www.w3.org/ns/csvw#Cell=5-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "01 2864339"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=5-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=6-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "New Town Centre"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Blessington"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Blessington Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "blessingtonlib@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 6 .
 
 <http://www.w3.org/ns/csvw#Cell=6-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "045 891701"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=6-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=7-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Market House"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Dunlavin"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Dunlavin Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "mgreene@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 7 .
 
 <http://www.w3.org/ns/csvw#Cell=7-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "045 401100"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=7-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=8-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Baltinglass"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue " "^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Baltinglass Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "mconsidine@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 8 .
 
 <http://www.w3.org/ns/csvw#Cell=8-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "059 6482300"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=8-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
 <http://www.w3.org/ns/csvw#Cell=9-Address1> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address1 ;
     csvtordf:hasValue "Market House, Dwyer Square"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-Address2> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address2 ;
     csvtordf:hasValue "Tinahely"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-Address3> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Address3 ;
     csvtordf:hasValue "Wicklow"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-Authority> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Authority ;
     csvtordf:hasValue "Wicklow County Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-BranchName> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_BranchName ;
     csvtordf:hasValue "Tinahely Library"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-Email> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Email ;
     csvtordf:hasValue "MCarty@wicklowcoco.ie"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-OBJECTID> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_OBJECTID ;
     csvtordf:hasValue 9 .
 
 <http://www.w3.org/ns/csvw#Cell=9-Telephone> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_Telephone ;
     csvtordf:hasValue "0402 38080"^^xsd:string .
 
 <http://www.w3.org/ns/csvw#Cell=9-URL> a csvw:Cell ;
+    csvtordf:belongsToColumn csvw:Column_URL ;
     csvtordf:hasValue "http://www.wicklow.ie/library-services"^^xsd:anyURI .
 
-csvw:Datatype a owl:Class ;
-    rdfs:comment "Describes facets of a datatype." ;
-    owl:disjointWith csvw:Row,
-        csvw:Schema,
-        csvw:TableGroup .
-
 <http://www.w3.org/ns/csvw#Row=1> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "1"^^xsd:int .
+    csvw:rownum "1"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=1-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=1-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=1-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=1-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=1-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=1-Email>,
+        <http://www.w3.org/ns/csvw#Cell=1-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=1-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=1-URL> .
 
 <http://www.w3.org/ns/csvw#Row=10> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "10"^^xsd:int .
+    csvw:rownum "10"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=10-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=10-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=10-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=10-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=10-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=10-Email>,
+        <http://www.w3.org/ns/csvw#Cell=10-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=10-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=10-URL> .
 
 <http://www.w3.org/ns/csvw#Row=11> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "11"^^xsd:int .
+    csvw:rownum "11"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=11-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=11-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=11-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=11-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=11-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=11-Email>,
+        <http://www.w3.org/ns/csvw#Cell=11-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=11-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=11-URL> .
 
 <http://www.w3.org/ns/csvw#Row=12> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "12"^^xsd:int .
+    csvw:rownum "12"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=12-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=12-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=12-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=12-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=12-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=12-Email>,
+        <http://www.w3.org/ns/csvw#Cell=12-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=12-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=12-URL> .
 
 <http://www.w3.org/ns/csvw#Row=13> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "13"^^xsd:int .
+    csvw:rownum "13"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=13-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=13-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=13-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=13-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=13-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=13-Email>,
+        <http://www.w3.org/ns/csvw#Cell=13-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=13-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=13-URL> .
 
 <http://www.w3.org/ns/csvw#Row=2> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "2"^^xsd:int .
+    csvw:rownum "2"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=2-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=2-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=2-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=2-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=2-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=2-Email>,
+        <http://www.w3.org/ns/csvw#Cell=2-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=2-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=2-URL> .
 
 <http://www.w3.org/ns/csvw#Row=3> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "3"^^xsd:int .
+    csvw:rownum "3"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=3-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=3-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=3-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=3-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=3-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=3-Email>,
+        <http://www.w3.org/ns/csvw#Cell=3-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=3-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=3-URL> .
 
 <http://www.w3.org/ns/csvw#Row=4> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "4"^^xsd:int .
+    csvw:rownum "4"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=4-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=4-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=4-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=4-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=4-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=4-Email>,
+        <http://www.w3.org/ns/csvw#Cell=4-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=4-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=4-URL> .
 
 <http://www.w3.org/ns/csvw#Row=5> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "5"^^xsd:int .
+    csvw:rownum "5"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=5-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=5-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=5-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=5-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=5-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=5-Email>,
+        <http://www.w3.org/ns/csvw#Cell=5-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=5-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=5-URL> .
 
 <http://www.w3.org/ns/csvw#Row=6> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "6"^^xsd:int .
+    csvw:rownum "6"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=6-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=6-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=6-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=6-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=6-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=6-Email>,
+        <http://www.w3.org/ns/csvw#Cell=6-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=6-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=6-URL> .
 
 <http://www.w3.org/ns/csvw#Row=7> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "7"^^xsd:int .
+    csvw:rownum "7"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=7-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=7-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=7-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=7-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=7-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=7-Email>,
+        <http://www.w3.org/ns/csvw#Cell=7-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=7-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=7-URL> .
 
 <http://www.w3.org/ns/csvw#Row=8> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "8"^^xsd:int .
+    csvw:rownum "8"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=8-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=8-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=8-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=8-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=8-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=8-Email>,
+        <http://www.w3.org/ns/csvw#Cell=8-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=8-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=8-URL> .
 
 <http://www.w3.org/ns/csvw#Row=9> a csvw:Row ;
-    csvw:describes csvw:Column_Address1,
-        csvw:Column_Address2,
-        csvw:Column_Address3,
-        csvw:Column_Authority,
-        csvw:Column_BranchName,
-        csvw:Column_Email,
-        csvw:Column_OBJECTID,
-        csvw:Column_Telephone,
-        csvw:Column_URL ;
-    csvw:rownum "9"^^xsd:int .
+    csvw:rownum "9"^^xsd:int ;
+    csvtordf:hasCell <http://www.w3.org/ns/csvw#Cell=9-Address1>,
+        <http://www.w3.org/ns/csvw#Cell=9-Address2>,
+        <http://www.w3.org/ns/csvw#Cell=9-Address3>,
+        <http://www.w3.org/ns/csvw#Cell=9-Authority>,
+        <http://www.w3.org/ns/csvw#Cell=9-BranchName>,
+        <http://www.w3.org/ns/csvw#Cell=9-Email>,
+        <http://www.w3.org/ns/csvw#Cell=9-OBJECTID>,
+        <http://www.w3.org/ns/csvw#Cell=9-Telephone>,
+        <http://www.w3.org/ns/csvw#Cell=9-URL> .
 
 csvtordf:SyntaxAccuracy a owl:Class ;
     rdfs:subClassOf csvtordf:DataQuality .
 
-csvtordf:belongsToGroup a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToGroup a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Table ;
     rdfs:range csvw:TableGroup .
 
-csvtordf:belongsToTable a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
+csvtordf:belongsToTable a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:domain csvw:Row ;
     rdfs:range csvw:Table .
 
-csvtordf:contains a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Cell .
-
-csvtordf:describesTable a owl:AsymmetricProperty,
-        owl:FunctionalProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:describesTable a owl:ObjectProperty ;
     rdfs:domain csvw:Schema ;
     rdfs:range csvw:Table .
 
-csvtordf:hasColumn a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
+csvtordf:hasCell a owl:ObjectProperty ;
+    rdfs:domain csvw:Row ;
+    rdfs:range csvw:Cell .
+
+csvtordf:hasColumn a owl:ObjectProperty ;
     rdfs:domain csvw:Schema ;
     rdfs:range csvw:Column .
 
-csvtordf:isDescribedOf a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain csvw:Column ;
-    rdfs:range csvw:Row .
+csvtordf:isDescribedOf a owl:ObjectProperty .
 
 csvw:TableGroup a owl:Class ;
     rdfs:comment "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables."@en .
+
+xsd:float a owl:NamedIndividual,
+        csvw:Datatype .
 
 csvtordf:DataQuality a owl:Class .
 
@@ -774,158 +869,50 @@ csvw:Schema a owl:Class ;
 csvw:Table a owl:Class ;
     rdfs:comment "A table represents a dataset or annotated table." .
 
+xsd:string a owl:NamedIndividual,
+        csvw:Datatype .
+
+csvw:Datatype a owl:Class ;
+    rdfs:comment "Describes facets of a datatype." ;
+    owl:disjointWith csvw:Row,
+        csvw:Schema,
+        csvw:TableGroup .
+
 csvw:Column_Address1 a csvw:Column ;
     csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=10-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=11-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=12-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=13-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=2-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=3-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=4-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=5-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=6-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=7-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=8-Address1>,
-        <http://www.w3.org/ns/csvw#Cell=9-Address1> ;
     csvtordf:lang "en" .
 
 csvw:Column_Address2 a csvw:Column ;
     csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=10-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=11-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=12-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=13-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=2-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=3-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=4-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=5-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=6-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=7-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=8-Address2>,
-        <http://www.w3.org/ns/csvw#Cell=9-Address2> ;
     csvtordf:lang "pl" .
 
 csvw:Column_Address3 a csvw:Column ;
     csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=10-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=11-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=12-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=13-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=2-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=3-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=4-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=5-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=6-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=7-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=8-Address3>,
-        <http://www.w3.org/ns/csvw#Cell=9-Address3> ;
     csvtordf:hasConstraint [ a csvtordf:DataQuality ;
             csvtordf:constraintElement "5"^^xsd:float ;
             csvtordf:constraintType csvw:Completeness ] .
 
 csvw:Column_Authority a csvw:Column ;
     csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=10-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=11-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=12-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=13-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=2-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=3-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=4-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=5-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=6-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=7-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=8-Authority>,
-        <http://www.w3.org/ns/csvw#Cell=9-Authority> ;
     csvtordf:lang "en" .
 
 csvw:Column_BranchName a csvw:Column ;
     csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=10-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=11-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=12-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=13-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=2-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=3-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=4-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=5-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=6-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=7-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=8-BranchName>,
-        <http://www.w3.org/ns/csvw#Cell=9-BranchName> ;
     csvtordf:lang "en" .
 
 csvw:Column_Email a csvw:Column ;
-    csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Email>,
-        <http://www.w3.org/ns/csvw#Cell=10-Email>,
-        <http://www.w3.org/ns/csvw#Cell=11-Email>,
-        <http://www.w3.org/ns/csvw#Cell=12-Email>,
-        <http://www.w3.org/ns/csvw#Cell=13-Email>,
-        <http://www.w3.org/ns/csvw#Cell=2-Email>,
-        <http://www.w3.org/ns/csvw#Cell=3-Email>,
-        <http://www.w3.org/ns/csvw#Cell=4-Email>,
-        <http://www.w3.org/ns/csvw#Cell=5-Email>,
-        <http://www.w3.org/ns/csvw#Cell=6-Email>,
-        <http://www.w3.org/ns/csvw#Cell=7-Email>,
-        <http://www.w3.org/ns/csvw#Cell=8-Email>,
-        <http://www.w3.org/ns/csvw#Cell=9-Email> .
+    csvw:datatype xsd:string .
 
 csvw:Column_OBJECTID a csvw:Column ;
     csvw:datatype xsd:integer ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=10-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=11-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=12-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=13-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=2-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=3-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=4-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=5-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=6-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=7-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=8-OBJECTID>,
-        <http://www.w3.org/ns/csvw#Cell=9-OBJECTID> ;
     csvtordf:mean "7.23"^^xsd:float ;
     csvtordf:stdDev "4.06"^^xsd:float .
 
 csvw:Column_Telephone a csvw:Column ;
-    csvw:datatype xsd:string ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=10-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=11-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=12-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=13-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=2-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=3-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=4-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=5-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=6-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=7-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=8-Telephone>,
-        <http://www.w3.org/ns/csvw#Cell=9-Telephone> .
+    csvw:datatype xsd:string .
 
 csvw:Column_URL a csvw:Column ;
-    csvw:datatype xsd:anyURI ;
-    csvtordf:contains <http://www.w3.org/ns/csvw#Cell=1-URL>,
-        <http://www.w3.org/ns/csvw#Cell=10-URL>,
-        <http://www.w3.org/ns/csvw#Cell=11-URL>,
-        <http://www.w3.org/ns/csvw#Cell=12-URL>,
-        <http://www.w3.org/ns/csvw#Cell=13-URL>,
-        <http://www.w3.org/ns/csvw#Cell=2-URL>,
-        <http://www.w3.org/ns/csvw#Cell=3-URL>,
-        <http://www.w3.org/ns/csvw#Cell=4-URL>,
-        <http://www.w3.org/ns/csvw#Cell=5-URL>,
-        <http://www.w3.org/ns/csvw#Cell=6-URL>,
-        <http://www.w3.org/ns/csvw#Cell=7-URL>,
-        <http://www.w3.org/ns/csvw#Cell=8-URL>,
-        <http://www.w3.org/ns/csvw#Cell=9-URL> .
+    csvw:datatype xsd:anyURI .
 
 csvw:Row a owl:Class ;
     rdfs:comment "A Row represents a horizontal arrangement of cells within a Table."@en .
