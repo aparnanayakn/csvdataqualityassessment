@@ -275,14 +275,6 @@
     
 
 
-    <!-- https://purl.archive.org/domain/csvtordf#constraintElement -->
-
-    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#constraintElement">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- https://purl.archive.org/domain/csvtordf#expectedDT -->
 
     <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#expectedDT">
@@ -338,7 +330,6 @@
 
     <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#invalidDate">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment xml:lang="en">Checks the data quality metric to see if there is any wrong date format.</rdfs:comment>
     </owl:DatatypeProperty>
     
