@@ -68,8 +68,17 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#datatype">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Table"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#TableGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:ObjectProperty>
     
 
@@ -110,9 +119,14 @@
     <!-- http://www.w3.org/ns/csvw#tableSchema -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/csvw#tableSchema">
-        <owl:inverseOf rdf:resource="https://purl.archive.org/domain/csvtordf#describesTable"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Table"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#TableGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
         <rdfs:comment xml:lang="en">An object property that provides a single schema description.</rdfs:comment>
     </owl:ObjectProperty>
@@ -160,15 +174,6 @@
     
 
 
-    <!-- https://purl.archive.org/domain/csvtordf#describesTable -->
-
-    <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#describesTable">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/csvw#Table"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://purl.archive.org/domain/csvtordf#hasCell -->
 
     <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasCell">
@@ -190,7 +195,6 @@
     <!-- https://purl.archive.org/domain/csvtordf#hasConstraint -->
 
     <owl:ObjectProperty rdf:about="https://purl.archive.org/domain/csvtordf#hasConstraint">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
         <rdfs:range rdf:resource="https://purl.archive.org/domain/csvtordf#DataQuality"/>
     </owl:ObjectProperty>
@@ -221,7 +225,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#format">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Table"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Format of the file like comma seperated, tab seperated etc.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -231,7 +235,17 @@
     <!-- http://www.w3.org/ns/csvw#null -->
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/csvw#null">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Table"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#TableGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is &apos;null&apos;.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -276,6 +290,15 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/domain/csvtordf#constraintElement -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#constraintElement">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Cell"/>
+        <rdfs:comment xml:lang="en">Points the cell value that has violated Data quality</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -334,7 +357,17 @@
     <!-- https://purl.archive.org/domain/csvtordf#lang -->
 
     <owl:DatatypeProperty rdf:about="https://purl.archive.org/domain/csvtordf#lang">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/csvw#Column"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Cell"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Column"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Schema"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#Table"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/csvw#TableGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Represents language of the value.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -390,9 +423,9 @@
     
 
 
-    <!-- http://www.w3.org/ns/csvw#Datatype -->
+    <!-- http://www.w3.org/ns/csvw#DataType -->
 
-    <owl:Class rdf:about="http://www.w3.org/ns/csvw#Datatype">
+    <owl:Class rdf:about="http://www.w3.org/ns/csvw#DataType">
         <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#Row"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#Schema"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/ns/csvw#TableGroup"/>
@@ -479,7 +512,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#boolean -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#boolean">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -487,7 +520,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#byte -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#byte">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -495,7 +528,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#dateTime -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#dateTime">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -503,7 +536,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#decimal -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#decimal">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -511,7 +544,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#double -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#double">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -519,7 +552,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#float -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#float">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -527,7 +560,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#int -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#int">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -535,7 +568,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#integer -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#integer">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -543,7 +576,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#long -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#long">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -551,7 +584,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#short -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#short">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
     
 
@@ -559,7 +592,7 @@
     <!-- http://www.w3.org/2001/XMLSchema#string -->
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#string">
-        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#Datatype"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/csvw#DataType"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
